@@ -165,7 +165,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_trabajador">
           <Properties>
-            <Property name="text" type="java.lang.String" value="......."/>
+            <Property name="text" type="java.lang.String" value="Trabajadores"/>
             <Property name="alignmentY" type="float" value="0.0"/>
             <Property name="autoscrolls" type="boolean" value="true"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
