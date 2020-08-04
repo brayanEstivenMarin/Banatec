@@ -99,7 +99,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btn_asignar.setText("Asignar labores");
+        btn_asignar.setText("Asignar Labores");
         btn_asignar.setAlignmentY(0.0F);
         btn_asignar.setAutoscrolls(true);
         btn_asignar.setMargin(new java.awt.Insets(1, 8, 1, 8));
