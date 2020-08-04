@@ -49,7 +49,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono.png"))); // NOI18N
 
-        btn_trabajador.setText("Trabajadores");
+        btn_trabajador.setText(".......");
         btn_trabajador.setAlignmentY(0.0F);
         btn_trabajador.setAutoscrolls(true);
         btn_trabajador.setMargin(new java.awt.Insets(1, 8, 1, 8));
