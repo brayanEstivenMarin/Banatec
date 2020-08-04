@@ -87,7 +87,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tabla);
 
-        jLabel2.setText("PERRA HPTA :");
+        jLabel2.setText("CEDULA:");
 
         jLabel3.setText("NOMBRE :");
 
