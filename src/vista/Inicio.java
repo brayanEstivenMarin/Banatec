@@ -89,7 +89,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btn_cosechas.setText("cosechas");
+        btn_cosechas.setText("Cosechas");
         btn_cosechas.setAlignmentY(0.0F);
         btn_cosechas.setAutoscrolls(true);
         btn_cosechas.setMargin(new java.awt.Insets(1, 8, 1, 8));
@@ -205,7 +205,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         edad.add(lista_tra);
 
-        admin.setText("Administradorees");
+        admin.setText("Administradores");
         admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminActionPerformed(evt);
