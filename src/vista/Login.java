@@ -53,8 +53,9 @@ public class Login extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         btncerrar = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -113,7 +114,7 @@ public class Login extends javax.swing.JFrame {
         btniniciar.setFont(new java.awt.Font("Gotham Extra Light", 0, 18)); // NOI18N
         btniniciar.setForeground(new java.awt.Color(255, 255, 255));
         btniniciar.setText("INGRESAR");
-        btniniciar.setBorderPainted(false);
+        btniniciar.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btniniciar.setContentAreaFilled(false);
         btniniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btniniciar.setFocusPainted(false);
@@ -125,7 +126,7 @@ public class Login extends javax.swing.JFrame {
                 btniniciarActionPerformed(evt);
             }
         });
-        jPanel2.add(btniniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 210, 60));
+        jPanel2.add(btniniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 100, -1));
 
         txtcorreo.setBackground(new java.awt.Color(33, 45, 62));
         txtcorreo.setFont(new java.awt.Font("Gotham Thin", 0, 18)); // NOI18N
@@ -160,25 +161,32 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Lock_25px.png"))); // NOI18N
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 48, 42));
 
-        jCheckBox1.setBackground(new java.awt.Color(33, 45, 62));
-        jCheckBox1.setFont(new java.awt.Font("Gotham Thin", 0, 14)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Recuérdame");
-        jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 160, -1));
-
-        btncerrar.setText("x");
+        btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cerrar-ventana-48.png"))); // NOI18N
+        btncerrar.setBorder(null);
+        btncerrar.setBorderPainted(false);
+        btncerrar.setContentAreaFilled(false);
+        btncerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btncerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncerrarActionPerformed(evt);
             }
         });
-        jPanel2.add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, -1));
+        jPanel2.add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 40, 60));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("¿Olvidaste tu contraseña? ");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 154, 146));
+        jButton1.setText("Restablecer");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, 80, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 600));
 
@@ -213,10 +221,6 @@ public class Login extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btniniciarActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void btncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncerrarActionPerformed
         System.exit( 0 );
@@ -268,7 +272,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncerrar;
     private javax.swing.JButton btniniciar;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -276,6 +280,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
