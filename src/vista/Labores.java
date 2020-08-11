@@ -50,8 +50,6 @@ public class Labores extends javax.swing.JInternalFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
         setTitle("labores");
 

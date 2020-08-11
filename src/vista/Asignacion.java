@@ -28,8 +28,6 @@ public class Asignacion extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
         setTitle("Asignacion de Labores");
 

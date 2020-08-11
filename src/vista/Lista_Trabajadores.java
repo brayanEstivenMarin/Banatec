@@ -45,8 +45,6 @@ public class Lista_Trabajadores extends javax.swing.JInternalFrame {
         tabla = new javax.swing.JTable();
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(

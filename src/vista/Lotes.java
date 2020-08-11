@@ -49,8 +49,6 @@ public class Lotes extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
 
         txtlote.addKeyListener(new java.awt.event.KeyAdapter() {

@@ -59,8 +59,6 @@ public class Trabajadores extends javax.swing.JInternalFrame {
         jButton2.setText("jButton2");
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
         setTitle("Trabajadores de la Finca");
 
