@@ -47,11 +47,19 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono.png"))); // NOI18N
 
-        btn_trabajador.setText("Trabajadores");
+        btn_trabajador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_trabajador.setForeground(new java.awt.Color(255, 255, 255));
+        btn_trabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-trabajadores-masculinos-64 (1).png"))); // NOI18N
+        btn_trabajador.setText("TRABAJADORES");
         btn_trabajador.setAlignmentY(0.0F);
         btn_trabajador.setAutoscrolls(true);
+        btn_trabajador.setBorder(null);
+        btn_trabajador.setBorderPainted(false);
+        btn_trabajador.setContentAreaFilled(false);
+        btn_trabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_trabajador.setMargin(new java.awt.Insets(1, 8, 1, 8));
         btn_trabajador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,9 +67,16 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btn_labores.setText("Labores");
+        btn_labores.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_labores.setForeground(new java.awt.Color(255, 255, 255));
+        btn_labores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-manejo-manual-64.png"))); // NOI18N
+        btn_labores.setText("LABORES");
         btn_labores.setAlignmentY(0.0F);
         btn_labores.setAutoscrolls(true);
+        btn_labores.setBorder(null);
+        btn_labores.setBorderPainted(false);
+        btn_labores.setContentAreaFilled(false);
+        btn_labores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_labores.setMargin(new java.awt.Insets(1, 8, 1, 8));
         btn_labores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,9 +84,17 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btn_Lotes.setText("Lotes");
+        btn_Lotes.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Lotes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_Lotes.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Lotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pueblo-64.png"))); // NOI18N
+        btn_Lotes.setText("LOTES");
         btn_Lotes.setAlignmentY(0.0F);
         btn_Lotes.setAutoscrolls(true);
+        btn_Lotes.setBorder(null);
+        btn_Lotes.setBorderPainted(false);
+        btn_Lotes.setContentAreaFilled(false);
+        btn_Lotes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Lotes.setMargin(new java.awt.Insets(1, 8, 1, 8));
         btn_Lotes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,9 +102,16 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btncintaje.setText("Cintaje");
+        btncintaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btncintaje.setForeground(new java.awt.Color(255, 255, 255));
+        btncintaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cinta-adhesiva-64.png"))); // NOI18N
+        btncintaje.setText("CINTAJE");
         btncintaje.setAlignmentY(0.0F);
         btncintaje.setAutoscrolls(true);
+        btncintaje.setBorder(null);
+        btncintaje.setBorderPainted(false);
+        btncintaje.setContentAreaFilled(false);
+        btncintaje.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btncintaje.setMargin(new java.awt.Insets(1, 8, 1, 8));
         btncintaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,9 +119,16 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btn_cosechas.setText("Cosechas");
+        btn_cosechas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_cosechas.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cosechas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-sweet-banana-64.png"))); // NOI18N
+        btn_cosechas.setText("COSECHAS");
         btn_cosechas.setAlignmentY(0.0F);
         btn_cosechas.setAutoscrolls(true);
+        btn_cosechas.setBorder(null);
+        btn_cosechas.setBorderPainted(false);
+        btn_cosechas.setContentAreaFilled(false);
+        btn_cosechas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cosechas.setMargin(new java.awt.Insets(1, 8, 1, 8));
         btn_cosechas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,9 +136,16 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btn_asignar.setText("Asignar Labores");
+        btn_asignar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_asignar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-trabajo-64.png"))); // NOI18N
+        btn_asignar.setText("ASIGNAR LABORES");
         btn_asignar.setAlignmentY(0.0F);
         btn_asignar.setAutoscrolls(true);
+        btn_asignar.setBorder(null);
+        btn_asignar.setBorderPainted(false);
+        btn_asignar.setContentAreaFilled(false);
+        btn_asignar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_asignar.setMargin(new java.awt.Insets(1, 8, 1, 8));
         btn_asignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,45 +165,41 @@ public class Inicio extends javax.swing.JFrame {
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addContainerGap(280, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                .addGap(278, 278, 278))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
                 .addGap(227, 227, 227)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btncintaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(btncintaje, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addComponent(btn_asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_trabajador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_trabajador, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
                     .addComponent(btn_labores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_Lotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_cosechas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_cosechas, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
                 .addGap(221, 221, 221))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(36, 36, 36))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btncintaje)
+                    .addComponent(btn_trabajador)
+                    .addComponent(btn_Lotes))
                 .addGap(29, 29, 29)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addComponent(btncintaje)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_asignar))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addComponent(btn_trabajador)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_labores))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addComponent(btn_Lotes)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_cosechas)))
-                .addGap(134, 134, 134))
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_asignar)
+                    .addComponent(btn_labores)
+                    .addComponent(btn_cosechas))
+                .addGap(89, 89, 89))
         );
 
         jMenu1.setText("Archivos");
@@ -221,7 +261,9 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(fondo)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,45 +272,6 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_trabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_trabajadorActionPerformed
-    Trabajadores tra=new Trabajadores();
-    fondo.add(tra);
-    tra.show();
-     
-     
-    }//GEN-LAST:event_btn_trabajadorActionPerformed
-
-    private void btn_LotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LotesActionPerformed
-    Lotes lot =new Lotes();
-      fondo.add(lot);
-      lot.show();
-    }//GEN-LAST:event_btn_LotesActionPerformed
-
-    private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
-       Asignacion asig=new Asignacion();
-        fondo.add(asig);
-     asig.show();
-     
-    }//GEN-LAST:event_btn_asignarActionPerformed
-
-    private void btncintajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncintajeActionPerformed
-      Cintaje cin=new Cintaje();
-      fondo.add(cin);
-      cin.show();
-    }//GEN-LAST:event_btncintajeActionPerformed
-
-    private void btn_laboresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_laboresActionPerformed
-       Labores lab=new Labores();
-       fondo.add(lab);
-       lab.show();
-    }//GEN-LAST:event_btn_laboresActionPerformed
-
-    private void btn_cosechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cosechasActionPerformed
-      Cosechas cose=new Cosechas();
-      fondo.add(cose);
-      cose.show();
-    }//GEN-LAST:event_btn_cosechasActionPerformed
 
     private void lista_cinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lista_cinActionPerformed
         // TODO add your handling code here:
@@ -303,6 +306,42 @@ public class Inicio extends javax.swing.JFrame {
      fondo.add(lad);
       lad.show();
     }//GEN-LAST:event_adminActionPerformed
+
+    private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
+        Asignacion asig=new Asignacion();
+        fondo.add(asig);
+        asig.show();
+    }//GEN-LAST:event_btn_asignarActionPerformed
+
+    private void btn_cosechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cosechasActionPerformed
+        Cosechas cose=new Cosechas();
+        fondo.add(cose);
+        cose.show();
+    }//GEN-LAST:event_btn_cosechasActionPerformed
+
+    private void btncintajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncintajeActionPerformed
+        Cintaje cin=new Cintaje();
+        fondo.add(cin);
+        cin.show();
+    }//GEN-LAST:event_btncintajeActionPerformed
+
+    private void btn_LotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LotesActionPerformed
+        Lotes lot =new Lotes();
+        fondo.add(lot);
+        lot.show();
+    }//GEN-LAST:event_btn_LotesActionPerformed
+
+    private void btn_laboresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_laboresActionPerformed
+        Labores lab=new Labores();
+        fondo.add(lab);
+        lab.show();
+    }//GEN-LAST:event_btn_laboresActionPerformed
+
+    private void btn_trabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_trabajadorActionPerformed
+        Trabajadores tra=new Trabajadores();
+        fondo.add(tra);
+        tra.show();
+    }//GEN-LAST:event_btn_trabajadorActionPerformed
 
     /**
      * @param args the command line arguments
