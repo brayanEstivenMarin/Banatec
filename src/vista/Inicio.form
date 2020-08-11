@@ -87,10 +87,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <Component id="fondo" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="fondo" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -108,25 +105,25 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btncintaje" pref="121" max="32767" attributes="0"/>
+                      <Component id="btncintaje" pref="125" max="32767" attributes="0"/>
                       <Component id="btn_asignar" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btn_trabajador" pref="168" max="32767" attributes="0"/>
+                      <Component id="btn_trabajador" pref="171" max="32767" attributes="0"/>
                       <Component id="btn_labores" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btn_Lotes" max="32767" attributes="0"/>
-                      <Component id="btn_cosechas" pref="136" max="32767" attributes="0"/>
+                      <Component id="btn_cosechas" pref="139" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
