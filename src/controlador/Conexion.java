@@ -13,7 +13,7 @@ public class Conexion {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10358696", "sql10358696", "qHeQvDyW7X");
+            con=DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net", "sql10360024", "U976fnU2zE");
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error al conectarse con la base de datos");
