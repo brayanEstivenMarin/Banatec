@@ -31,7 +31,7 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icon = new ImageIcon(getClass().getResource("fondo.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/fondo_inicio.jpg"));
         Image image = icon.getImage();
         fondo = new javax.swing.JDesktopPane(){
 
