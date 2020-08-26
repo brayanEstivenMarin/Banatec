@@ -5,6 +5,9 @@
  */
 package vista;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Brayan
@@ -28,7 +31,14 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fondo = new javax.swing.JDesktopPane();
+        ImageIcon icon = new ImageIcon(getClass().getResource("fondo.jpg"));
+        Image image = icon.getImage();
+        fondo = new javax.swing.JDesktopPane(){
+
+            public void paintComponent(Graphics g){
+                g.drawImage(image,0,0,getWidth(),getHeight(),this);
+            }
+        };
         jLabel1 = new javax.swing.JLabel();
         btn_trabajador = new javax.swing.JButton();
         btn_labores = new javax.swing.JButton();
@@ -168,16 +178,16 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
                 .addGap(227, 227, 227)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btncintaje, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addComponent(btncintaje, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                     .addComponent(btn_asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_trabajador, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(btn_trabajador, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                     .addComponent(btn_labores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_Lotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_cosechas, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                    .addComponent(btn_cosechas, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                 .addGap(221, 221, 221))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
                 .addContainerGap()
@@ -261,9 +271,7 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(fondo)
-                .addContainerGap())
+            .addComponent(fondo)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
