@@ -56,6 +56,7 @@ public class Login extends javax.swing.JFrame {
         btncerrar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -113,7 +114,7 @@ public class Login extends javax.swing.JFrame {
         btniniciar.setBackground(new java.awt.Color(73, 181, 172));
         btniniciar.setFont(new java.awt.Font("Gotham Extra Light", 0, 18)); // NOI18N
         btniniciar.setForeground(new java.awt.Color(255, 255, 255));
-        btniniciar.setText("INGRESAR");
+        btniniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ingresar.png"))); // NOI18N
         btniniciar.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btniniciar.setContentAreaFilled(false);
         btniniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -126,7 +127,7 @@ public class Login extends javax.swing.JFrame {
                 btniniciarActionPerformed(evt);
             }
         });
-        jPanel2.add(btniniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 100, -1));
+        jPanel2.add(btniniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 200, -1));
 
         txtcorreo.setBackground(new java.awt.Color(33, 45, 62));
         txtcorreo.setFont(new java.awt.Font("Gotham Thin", 0, 18)); // NOI18N
@@ -149,19 +150,20 @@ public class Login extends javax.swing.JFrame {
 
         jSeparator1.setBackground(new java.awt.Color(73, 181, 172));
         jSeparator1.setForeground(new java.awt.Color(73, 181, 172));
+        jSeparator1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 310, 10));
 
         jSeparator2.setBackground(new java.awt.Color(73, 181, 172));
         jSeparator2.setForeground(new java.awt.Color(73, 181, 172));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 310, 10));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Email_25px.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 48, 36));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mail.png"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 226, 30, 40));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Lock_25px.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 48, 42));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/contra.png"))); // NOI18N
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, 40));
 
-        btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cerrar-ventana-48.png"))); // NOI18N
+        btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar.png"))); // NOI18N
         btncerrar.setBorder(null);
         btncerrar.setBorderPainted(false);
         btncerrar.setContentAreaFilled(false);
@@ -187,6 +189,17 @@ public class Login extends javax.swing.JFrame {
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, 80, 20));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/minimiz.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 40, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 600));
 
@@ -225,6 +238,10 @@ public class Login extends javax.swing.JFrame {
     private void btncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncerrarActionPerformed
         System.exit( 0 );
     }//GEN-LAST:event_btncerrarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+ this.setExtendedState(ICONIFIED);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,6 +290,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btncerrar;
     private javax.swing.JButton btniniciar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
