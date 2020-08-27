@@ -60,7 +60,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono.png"))); // NOI18N
 
-        btn_trabajador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_trabajador.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn_trabajador.setForeground(new java.awt.Color(255, 255, 255));
         btn_trabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-trabajadores-masculinos-64 (1).png"))); // NOI18N
         btn_trabajador.setText("TRABAJADORES");
@@ -77,7 +77,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btn_labores.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_labores.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn_labores.setForeground(new java.awt.Color(255, 255, 255));
         btn_labores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-manejo-manual-64.png"))); // NOI18N
         btn_labores.setText("LABORES");
@@ -95,7 +95,7 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         btn_Lotes.setBackground(new java.awt.Color(255, 255, 255));
-        btn_Lotes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_Lotes.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn_Lotes.setForeground(new java.awt.Color(255, 255, 255));
         btn_Lotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pueblo-64.png"))); // NOI18N
         btn_Lotes.setText("LOTES");
@@ -112,7 +112,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btncintaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btncintaje.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btncintaje.setForeground(new java.awt.Color(255, 255, 255));
         btncintaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cinta-adhesiva-64.png"))); // NOI18N
         btncintaje.setText("CINTAJE");
@@ -129,7 +129,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btn_cosechas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_cosechas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn_cosechas.setForeground(new java.awt.Color(255, 255, 255));
         btn_cosechas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-sweet-banana-64.png"))); // NOI18N
         btn_cosechas.setText("COSECHAS");
@@ -146,7 +146,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btn_asignar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_asignar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn_asignar.setForeground(new java.awt.Color(255, 255, 255));
         btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-trabajo-64.png"))); // NOI18N
         btn_asignar.setText("ASIGNAR LABORES");
@@ -176,19 +176,29 @@ public class Inicio extends javax.swing.JFrame {
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
-                .addGap(227, 227, 227)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btncintaje, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(btn_asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_asignar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(57, 57, 57))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(btncintaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(89, 89, 89)))
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_trabajador, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                    .addComponent(btn_labores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btn_trabajador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(btn_labores, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                        .addGap(52, 52, 52)))
+                .addGap(42, 42, 42)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Lotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_cosechas, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-                .addGap(221, 221, 221))
+                    .addComponent(btn_cosechas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(btn_Lotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(26, 26, 26)))
+                .addGap(75, 75, 75))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -198,7 +208,7 @@ public class Inicio extends javax.swing.JFrame {
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btncintaje)
