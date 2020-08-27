@@ -47,13 +47,13 @@ public class Inicio extends javax.swing.JFrame {
         btn_cosechas = new javax.swing.JButton();
         btn_asignar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        administador = new javax.swing.JMenuItem();
         edad = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         lista_cin = new javax.swing.JMenuItem();
         lista_tra = new javax.swing.JMenuItem();
         admin = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        administador = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -178,13 +178,13 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_asignar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(57, 57, 57))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(btncintaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(89, 89, 89)))
+                        .addComponent(btncintaje, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                        .addGap(89, 89, 89))
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(btn_asignar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_trabajador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(fondoLayout.createSequentialGroup()
@@ -208,7 +208,7 @@ public class Inicio extends javax.swing.JFrame {
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btncintaje)
@@ -222,25 +222,17 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(89, 89, 89))
         );
 
-        jMenu1.setText("Archivos");
-
-        administador.setText("Administradores");
-        administador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                administadorActionPerformed(evt);
-            }
-        });
-        jMenu1.add(administador);
-
-        jMenuBar1.add(jMenu1);
-
+        edad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lista.png"))); // NOI18N
         edad.setText("Lista");
+        edad.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         edad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edadActionPerformed(evt);
             }
         });
 
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trabajadores.png"))); // NOI18N
         jMenuItem2.setText("Trabajadores");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +241,8 @@ public class Inicio extends javax.swing.JFrame {
         });
         edad.add(jMenuItem2);
 
+        lista_cin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lista_cin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edad_fruta.png"))); // NOI18N
         lista_cin.setText("Edad fruta");
         lista_cin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,6 +251,8 @@ public class Inicio extends javax.swing.JFrame {
         });
         edad.add(lista_cin);
 
+        lista_tra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lista_tra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Cosechas.png"))); // NOI18N
         lista_tra.setText("Cosechas");
         lista_tra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,6 +261,8 @@ public class Inicio extends javax.swing.JFrame {
         });
         edad.add(lista_tra);
 
+        admin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/admin.png"))); // NOI18N
         admin.setText("Administradores");
         admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,6 +272,21 @@ public class Inicio extends javax.swing.JFrame {
         edad.add(admin);
 
         jMenuBar1.add(edad);
+
+        jMenu1.setText("Archivos");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+
+        administador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        administador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agg_admin.png"))); // NOI18N
+        administador.setText("Administradores");
+        administador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                administadorActionPerformed(evt);
+            }
+        });
+        jMenu1.add(administador);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
