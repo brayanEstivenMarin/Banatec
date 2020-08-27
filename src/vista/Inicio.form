@@ -24,7 +24,7 @@
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/trabajadores.png"/>
+                  <Image iconType="3" name="/img/trabajadores_barra nav.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Trabajadores"/>
               </Properties>
@@ -52,7 +52,7 @@
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/Cosechas.png"/>
+                  <Image iconType="3" name="/img/cosechas_barranav.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cosechas"/>
               </Properties>
@@ -78,6 +78,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/archivo.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Archivos"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="15" style="0"/>
@@ -188,7 +191,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" pref="370" max="32767" attributes="0"/>
+                  <Component id="jLabel1" pref="334" max="32767" attributes="0"/>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btncintaje" alignment="3" max="-2" attributes="0"/>
@@ -224,7 +227,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons8-trabajadores-masculinos-64 (1).png"/>
+              <Image iconType="3" name="/img/trabajadores_inicio.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="TRABAJADORES"/>
             <Property name="alignmentY" type="float" value="0.0"/>
@@ -254,7 +257,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons8-manejo-manual-64.png"/>
+              <Image iconType="3" name="/img/labores.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="LABORES"/>
             <Property name="alignmentY" type="float" value="0.0"/>
@@ -287,7 +290,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons8-pueblo-64.png"/>
+              <Image iconType="3" name="/img/lotes.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="LOTES"/>
             <Property name="alignmentY" type="float" value="0.0"/>
@@ -317,7 +320,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons8-cinta-adhesiva-64.png"/>
+              <Image iconType="3" name="/img/cintaje.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CINTAJE"/>
             <Property name="alignmentY" type="float" value="0.0"/>
@@ -347,7 +350,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons8-sweet-banana-64.png"/>
+              <Image iconType="3" name="/img/cosechas_inicio.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="COSECHAS"/>
             <Property name="alignmentY" type="float" value="0.0"/>
@@ -377,7 +380,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons8-trabajo-64.png"/>
+              <Image iconType="3" name="/img/asignar_labores.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ASIGNAR LABORES"/>
             <Property name="alignmentY" type="float" value="0.0"/>

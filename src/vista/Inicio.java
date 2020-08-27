@@ -13,12 +13,15 @@ import javax.swing.ImageIcon;
  * @author Brayan
  */
 public class Inicio extends javax.swing.JFrame {
-
+    
+    
+    
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/img/icono_nav.png")).getImage());
         setExtendedState(MAXIMIZED_BOTH);
     }
 
@@ -62,7 +65,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btn_trabajador.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn_trabajador.setForeground(new java.awt.Color(255, 255, 255));
-        btn_trabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-trabajadores-masculinos-64 (1).png"))); // NOI18N
+        btn_trabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trabajadores_inicio.png"))); // NOI18N
         btn_trabajador.setText("TRABAJADORES");
         btn_trabajador.setAlignmentY(0.0F);
         btn_trabajador.setAutoscrolls(true);
@@ -79,7 +82,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btn_labores.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn_labores.setForeground(new java.awt.Color(255, 255, 255));
-        btn_labores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-manejo-manual-64.png"))); // NOI18N
+        btn_labores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/labores.png"))); // NOI18N
         btn_labores.setText("LABORES");
         btn_labores.setAlignmentY(0.0F);
         btn_labores.setAutoscrolls(true);
@@ -97,7 +100,7 @@ public class Inicio extends javax.swing.JFrame {
         btn_Lotes.setBackground(new java.awt.Color(255, 255, 255));
         btn_Lotes.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn_Lotes.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Lotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pueblo-64.png"))); // NOI18N
+        btn_Lotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lotes.png"))); // NOI18N
         btn_Lotes.setText("LOTES");
         btn_Lotes.setAlignmentY(0.0F);
         btn_Lotes.setAutoscrolls(true);
@@ -114,7 +117,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btncintaje.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btncintaje.setForeground(new java.awt.Color(255, 255, 255));
-        btncintaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cinta-adhesiva-64.png"))); // NOI18N
+        btncintaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cintaje.png"))); // NOI18N
         btncintaje.setText("CINTAJE");
         btncintaje.setAlignmentY(0.0F);
         btncintaje.setAutoscrolls(true);
@@ -131,7 +134,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btn_cosechas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn_cosechas.setForeground(new java.awt.Color(255, 255, 255));
-        btn_cosechas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-sweet-banana-64.png"))); // NOI18N
+        btn_cosechas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cosechas_inicio.png"))); // NOI18N
         btn_cosechas.setText("COSECHAS");
         btn_cosechas.setAlignmentY(0.0F);
         btn_cosechas.setAutoscrolls(true);
@@ -148,7 +151,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btn_asignar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btn_asignar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-trabajo-64.png"))); // NOI18N
+        btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/asignar_labores.png"))); // NOI18N
         btn_asignar.setText("ASIGNAR LABORES");
         btn_asignar.setAlignmentY(0.0F);
         btn_asignar.setAutoscrolls(true);
@@ -208,7 +211,7 @@ public class Inicio extends javax.swing.JFrame {
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btncintaje)
@@ -232,7 +235,7 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trabajadores.png"))); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trabajadores_barra nav.png"))); // NOI18N
         jMenuItem2.setText("Trabajadores");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +255,7 @@ public class Inicio extends javax.swing.JFrame {
         edad.add(lista_cin);
 
         lista_tra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lista_tra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Cosechas.png"))); // NOI18N
+        lista_tra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cosechas_barranav.png"))); // NOI18N
         lista_tra.setText("Cosechas");
         lista_tra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,6 +276,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar1.add(edad);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/archivo.png"))); // NOI18N
         jMenu1.setText("Archivos");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
@@ -344,12 +348,6 @@ public class Inicio extends javax.swing.JFrame {
         asig.show();
     }//GEN-LAST:event_btn_asignarActionPerformed
 
-    private void btn_cosechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cosechasActionPerformed
-        Cosechas cose=new Cosechas();
-        fondo.add(cose);
-        cose.show();
-    }//GEN-LAST:event_btn_cosechasActionPerformed
-
     private void btncintajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncintajeActionPerformed
         Cintaje cin=new Cintaje();
         fondo.add(cin);
@@ -373,6 +371,12 @@ public class Inicio extends javax.swing.JFrame {
         fondo.add(tra);
         tra.show();
     }//GEN-LAST:event_btn_trabajadorActionPerformed
+
+    private void btn_cosechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cosechasActionPerformed
+        Cosechas cose=new Cosechas();
+        fondo.add(cose);
+        cose.show();
+    }//GEN-LAST:event_btn_cosechasActionPerformed
 
     /**
      * @param args the command line arguments
