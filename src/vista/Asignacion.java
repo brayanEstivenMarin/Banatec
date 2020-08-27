@@ -28,7 +28,6 @@ public class Asignacion extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         setClosable(true);
-        setResizable(true);
         setTitle("Asignacion de Labores");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

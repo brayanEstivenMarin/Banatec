@@ -58,7 +58,6 @@ public class Administradores extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setClosable(true);
-        setResizable(true);
 
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
