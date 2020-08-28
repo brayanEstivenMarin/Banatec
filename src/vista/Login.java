@@ -56,7 +56,7 @@ public class Login extends javax.swing.JFrame {
         btncerrar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        ImageIcon icon = new ImageIcon(getClass().getResource("/img/fondo_login.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/fondo_login2.jpg"));
         Image image = icon.getImage();
         fondo_login = new javax.swing.JDesktopPane(){
 
@@ -180,17 +180,25 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setExtendedState(ICONIFIED);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncerrarActionPerformed
+        System.exit( 0 );
+    }//GEN-LAST:event_btncerrarActionPerformed
+
     private void pswcontraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswcontraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pswcontraActionPerformed
 
     private void btniniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btniniciarActionPerformed
-         try {
+        try {
             con = conexion.conectarse();
             ps=con.prepareStatement("Select * from administradores where correo_a=? and contraseña=?");
             ps.setString(1,txtcorreo.getText());
             ps.setString(2,pswcontra.getText());
-            
+
             rs=ps.executeQuery();
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null,"BIENVENIDO");
@@ -208,14 +216,6 @@ public class Login extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btniniciarActionPerformed
-
-    private void btncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncerrarActionPerformed
-        System.exit( 0 );
-    }//GEN-LAST:event_btncerrarActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- this.setExtendedState(ICONIFIED);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
