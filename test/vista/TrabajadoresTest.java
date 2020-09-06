@@ -71,7 +71,7 @@ public class TrabajadoresTest {
         Trabajadores instance = new Trabajadores();
         instance.guardar();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Trabajador guardado correctamente");
     }
 
     /**
@@ -83,7 +83,7 @@ public class TrabajadoresTest {
         Trabajadores instance = new Trabajadores();
         instance.limpiartxt();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("");
     }
 
     /**
@@ -95,7 +95,7 @@ public class TrabajadoresTest {
         Trabajadores instance = new Trabajadores();
         instance.actualizar();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Actualizado correctamente");
     }
 
     /**
@@ -107,7 +107,7 @@ public class TrabajadoresTest {
         Trabajadores instance = new Trabajadores();
         instance.eliminar();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Se elimino correctamente");
     }
     
 }
