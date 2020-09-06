@@ -5,17 +5,40 @@
  */
 package vista;
 
+
+import controlador.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Brayan
  */
 public class Asignacion extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Asignacion
-     */
+Conexion cn=new Conexion();
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
+    DefaultTableModel modelo;
     public Asignacion() {
         initComponents();
+        txt_codigo.setEnabled(false);
+        listar();
+        combo_lote.removeAllItems();
+        combo_tra.removeAllItems();
+        combo_asig.removeAllItems();
+        combo_labor.removeAllItems();
+        cargar_lotes(combo_lote);
+        cargar_trabajadores(combo_tra);
+        cargar_asignador(combo_asig);
+        cargar_labor(combo_labor);
     }
 
     /**
@@ -27,24 +50,497 @@ public class Asignacion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txt_codigo = new javax.swing.JTextField();
+        txt_costo = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txt_inicio = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txt_fin = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        combo_tra = new javax.swing.JComboBox<>();
+        combo_asig = new javax.swing.JComboBox<>();
+        combo_labor = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        combo_lote = new javax.swing.JComboBox<>();
+        btnnuevo = new javax.swing.JButton();
+        btn_eliminar = new javax.swing.JButton();
+        btn_actualizar = new javax.swing.JButton();
+        btn_guardar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         setClosable(true);
         setTitle("Asignacion de Labores");
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono2.png"))); // NOI18N
+
+        jLabel1.setText("Codigo");
+
+        txt_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_codigoKeyTyped(evt);
+            }
+        });
+
+        txt_costo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_costoKeyTyped(evt);
+            }
+        });
+
+        jLabel2.setText("Costo");
+
+        jLabel3.setText("Trabajador");
+
+        jLabel4.setText("Asignador");
+
+        txt_inicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_inicioKeyTyped(evt);
+            }
+        });
+
+        jLabel5.setText("Fecha inicio");
+
+        txt_fin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_finKeyTyped(evt);
+            }
+        });
+
+        jLabel6.setText("Fecha fin");
+
+        combo_tra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_tra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_traActionPerformed(evt);
+            }
+        });
+
+        combo_asig.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        combo_labor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel7.setText("Labor");
+
+        jLabel8.setText("Lote");
+
+        combo_lote.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnnuevo.setText("NUEVO");
+        btnnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnuevoActionPerformed(evt);
+            }
+        });
+
+        btn_eliminar.setText("ELIMINAR");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
+
+        btn_actualizar.setText("ACTUALIZAR");
+        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_actualizarActionPerformed(evt);
+            }
+        });
+
+        btn_guardar.setText("AGREGAR");
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
+
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Costo", "Trabajador", "Asignador", "Lote", "Labor", "Fecha inicio", "Fecha fin"
+            }
+        ));
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 864, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(305, 305, 305)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(combo_labor, 0, 266, Short.MAX_VALUE)
+                            .addComponent(combo_lote, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(combo_asig, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(232, 232, 232))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(10, 10, 10)))
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_costo, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txt_fin, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(combo_tra, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txt_costo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(combo_tra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(combo_asig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(combo_lote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(combo_labor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(txt_fin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnnuevo))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_guardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txt_codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyTyped
+        char c= evt.getKeyChar();
+        if(c<'0' || c>'9' ) evt.consume();
+    }//GEN-LAST:event_txt_codigoKeyTyped
 
+    private void txt_costoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_costoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_costoKeyTyped
+
+    private void txt_inicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_inicioKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_inicioKeyTyped
+
+    private void txt_finKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_finKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_finKeyTyped
+
+    private void combo_traActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_traActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_traActionPerformed
+
+    private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
+       limpiartxt();
+    }//GEN-LAST:event_btnnuevoActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+      eliminar();
+    }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
+      
+    }//GEN-LAST:event_btn_actualizarActionPerformed
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+       guardar();
+    }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+      
+    }//GEN-LAST:event_tablaMouseClicked
+
+
+     public void cargar_lotes(JComboBox cbox_lotes){
+       
+       try {
+            con=cn.conectarse();
+            ps=con.prepareStatement("select id_lote from lotes");    
+            rs=ps.executeQuery();
+            cbox_lotes.addItem("Selecciona un lote ");
+            
+           while (rs.next()) {               
+               cbox_lotes.addItem(rs.getString("id_lote"));
+               
+           }
+   
+       } catch (Exception e) {
+           JOptionPane.showMessageDialog(null,e);
+       }
+
+   }
+     
+     
+       public void cargar_labor(JComboBox cbox_labor){
+       
+       try {
+            con=cn.conectarse();
+            ps=con.prepareStatement("select id_labor from labores");    
+            rs=ps.executeQuery();
+            cbox_labor.addItem("Selecciona una labor ");
+            
+           while (rs.next()) {               
+               cbox_labor.addItem(rs.getString("id_labor"));
+               
+           }
+   
+       } catch (Exception e) {
+           JOptionPane.showMessageDialog(null,e);
+       }
+
+   }
+       
+     public void cargar_trabajadores(JComboBox cbox_tra){
+       
+       try {
+            con=cn.conectarse();
+            ps=con.prepareStatement("select cedula_tra from trabajadores");    
+            rs=ps.executeQuery();
+            cbox_tra.addItem("Selecciona un trabajador ");
+            
+           while (rs.next()) {               
+               cbox_tra.addItem(rs.getString("cedula_tra"));
+               
+           }
+   
+       } catch (Exception e) {
+           JOptionPane.showMessageDialog(null,e);
+       }
+
+   }
+     
+       public void cargar_asignador(JComboBox cbox_asig){
+       
+       try {
+            con=cn.conectarse();
+            ps=con.prepareStatement("select cedula_admin from administradores");    
+            rs=ps.executeQuery();
+            cbox_asig.addItem("Selecciona un asignador");
+            
+           while (rs.next()) {               
+               cbox_asig.addItem(rs.getString("cedula_admin"));
+           }
+   
+       } catch (Exception e) {
+           JOptionPane.showMessageDialog(null,e);
+       }
+
+   }
+     void listar(){
+
+    try {
+        con=cn.conectarse();
+        ps=con.prepareStatement("select * from asignacion");
+        rs=ps.executeQuery();
+      
+        Object[] labor =new Object[8];
+        modelo=(DefaultTableModel)tabla.getModel();
+        while(rs.next()){
+        labor[0]=rs.getString("id_asig");
+        labor[1]=rs.getString("costo");
+        labor[2]=rs.getString("trabajador");
+        labor[3]=rs.getString("asignador");
+        labor[4]=rs.getString("lote");
+        labor[5]=rs.getString("labor");
+        labor[6]=rs.getString("f_inicio");
+        labor[7]=rs.getString("f_fin");
+        modelo.addRow(labor);
+        
+        }
+             
+    } catch (Exception e) {
+    }
+
+
+}
+void guardar(){
+String codigo=txt_codigo.getText();
+String costo=txt_costo.getText();
+String trabajador= (String) combo_tra.getSelectedItem();
+String asignador= (String) combo_asig.getSelectedItem();
+String lote= (String) combo_lote.getSelectedItem();
+String labor= (String) combo_labor.getSelectedItem();
+String inicio=txt_fin.getText();
+String fin=txt_inicio.getText();
+
+
+    try {
+        con=cn.conectarse();
+        ps=con.prepareStatement("insert into asignacion (costo,trabajador,asignador,lote,labor,f_inicio,f_fin) values('"+costo+"','"+trabajador+"','"+asignador+"','"+lote+"','"+labor+"','"+inicio+"','"+fin+"')");
+        ps.executeUpdate();
+        JOptionPane.showMessageDialog(null, "asignacion agregada correctamente");
+        limpiarTabla();
+        limpiartxt();
+        listar();
+    } catch (Exception e) {
+    }
+}
+
+   
+   
+   void eliminar(){
+String codigo=txt_codigo.getText();
+    try {
+        con=cn.conectarse();
+        ps=con.prepareStatement("delete from asignacion where id_asig='"+codigo+"'");
+        ps.executeUpdate();
+        
+        JOptionPane.showMessageDialog(null, "Se elimino correctamente");
+        limpiarTabla();
+        limpiartxt();
+        listar();
+        
+         btn_guardar.setEnabled(true);
+          
+          
+    } catch (Exception e) {
+    }
+
+
+
+}
+     void limpiartxt(){
+   txt_codigo.setText("");
+   txt_costo.setText("");
+   combo_tra.setSelectedIndex(0);
+    combo_asig.setSelectedIndex(0);
+     combo_lote.setSelectedIndex(0);
+      combo_labor.setSelectedIndex(0);
+       txt_inicio.setText("");
+        txt_fin.setText("");
+  btn_guardar.setEnabled(true);
+
+      }
+   private void limpiarTabla() {
+     
+for (int i = 0; i < tabla.getRowCount(); i++) {
+modelo.removeRow(i);
+i-=1;
+
+
+}
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_actualizar;
+    private javax.swing.JButton btn_eliminar;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btnnuevo;
+    private javax.swing.JComboBox<String> combo_asig;
+    private javax.swing.JComboBox<String> combo_labor;
+    private javax.swing.JComboBox<String> combo_lote;
+    private javax.swing.JComboBox<String> combo_tra;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabla;
+    private javax.swing.JTextField txt_codigo;
+    private javax.swing.JTextField txt_costo;
+    private javax.swing.JTextField txt_fin;
+    private javax.swing.JTextField txt_inicio;
     // End of variables declaration//GEN-END:variables
 }

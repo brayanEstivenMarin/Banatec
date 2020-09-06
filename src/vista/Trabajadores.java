@@ -405,7 +405,7 @@ i-=1;
 }
 }
  
- void guardar(){
+ public void guardar(){
 
  String cedula = txt_cedula.getText();
   String nombre = txt_nombre.getText();
@@ -423,7 +423,7 @@ i-=1;
           con=cn.conectarse();
           ps=con.prepareStatement("INSERT INTO trabajadores value('"+cedula+"','"+nombre+"','"+apellidos+"','"+telefono+"','"+edad+"','"+direccion+"')");
           ps.executeUpdate();
-          JOptionPane.showMessageDialog(null, "Usuario guardado correctamente");
+          JOptionPane.showMessageDialog(null, "Trabajador guardado correctamente");
           
           limpiartxt();
           limpiarTabla();

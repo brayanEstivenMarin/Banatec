@@ -25,6 +25,7 @@ public class Cintaje extends javax.swing.JInternalFrame {
         initComponents();
         lista();
         cargar_lotes(combolotes);
+              txtid.setEnabled(false );
     
     }
 
@@ -239,7 +240,7 @@ public class Cintaje extends javax.swing.JInternalFrame {
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(combolotes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(combolotes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -260,7 +261,7 @@ public class Cintaje extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtcafe, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                        .addComponent(txtcafe, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE)
                         .addGap(5, 5, 5))
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -454,7 +455,7 @@ char c= evt.getKeyChar();
             ps = con.prepareStatement("SELECT * FROM cintaje");
             rs = ps.executeQuery();
             defaul = (DefaultTableModel) tabla.getModel();
-            Object[] arreglo = new Object[10];
+            Object[] arreglo = new Object[11];
             while (rs.next()) {
                 arreglo[0] = rs.getString("id_encintaje");
                 arreglo[1] = rs.getString("lote");
@@ -466,6 +467,7 @@ char c= evt.getKeyChar();
                 arreglo[7] = rs.getString("azul");
                 arreglo[8] = rs.getString("morado");
                 arreglo[9] = rs.getString("cafe");
+                arreglo[10]=rs.getString("total");
                 defaul.addRow(arreglo);
             }
             tabla.setModel(defaul);
@@ -474,30 +476,30 @@ char c= evt.getKeyChar();
     }
 
     void agregar() {
-        String id = txtid.getText();
+     
         String lote = (String) combolotes.getSelectedItem();
-        String amarillo = txtamarillo.getText();
-        String naranja = txtnaranja.getText();
-        String rojo = txtrojo.getText();
-        String blanco = txtblanco.getText();
-        String negro = txtnegro.getText();
-        String azul = txtazul.getText();
-        String morado = txtmorado.getText();
-        String cafe = txtcafe.getText();
-        if (id.equals("") || amarillo.equals("") || naranja.equals("") || rojo.equals("") || blanco.equals("") || negro.equals("") || azul.equals("") || morado.equals("") || cafe.equals("")) {
-            JOptionPane.showMessageDialog(null, "INGRESE LOS DATOS");
-        } else {
+        int amarillo=Integer.parseInt(txtamarillo.getText());  
+        int  naranja = Integer.parseInt(txtnaranja.getText());
+        int rojo = Integer.parseInt(txtrojo.getText());
+        int blanco = Integer.parseInt(txtblanco.getText());
+       int negro =Integer.parseInt(txtnegro.getText()) ;
+        int azul = Integer.parseInt(txtazul.getText());
+        int morado =Integer.parseInt(txtmorado.getText());
+        int cafe = Integer.parseInt(txtcafe.getText());
+        int total=amarillo+naranja+rojo+blanco+negro+azul+morado+cafe;
+        
+       
+        
             try {
-                ps = con.prepareStatement("INSERT INTO cintaje VALUES('" + id + "','" + lote + "','" + amarillo + "','" + naranja + "','" + rojo + "','" + blanco + "','" + negro + "','" + azul + "','" + morado + "','" + cafe + "','"+345+"')");
+                ps = con.prepareStatement("INSERT INTO cintaje (lote,amarillo,naranja,rojo,blanco,negro,azul,morado,cafe,total) VALUES('" + lote + "','" + amarillo + "','" + naranja + "','" + rojo + "','" + blanco + "','" + negro + "','" + azul + "','" + morado + "','" + cafe + "','"+ total +"')");
                 ps.executeUpdate();
-
                 limpiar();
                 lista();
                 cancelar();
                 JOptionPane.showMessageDialog(null, "SE HA AGREGADO CORRECTAMENTE");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "ERROR");
-            }
+            
         }
 
     }
@@ -542,7 +544,7 @@ void sumar(){
             lista();
             cancelar();
             JOptionPane.showMessageDialog(null, "ELIMINAR CORRECTAMENTE");
-            txtid.setEnabled(true);
+           
             btn_guardar.setEnabled(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "ERROR");
@@ -568,7 +570,7 @@ void sumar(){
         txtmorado.setText("");
         txtcafe.setText("");
         combolotes.setEnabled(true);
-        txtid.setEnabled(true);
+  
     }
  public void cargar_lotes(JComboBox cbox_lotes) {
 

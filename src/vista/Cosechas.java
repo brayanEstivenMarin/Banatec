@@ -26,6 +26,7 @@ Conexion cn=new Conexion();
         listar();
       txt_fecha.setText(fecha_actual());
         cargar_lotes(combolotes);
+         txt_codigo.setEnabled(false);
      
         
     }
@@ -333,7 +334,7 @@ char c= evt.getKeyChar();
    txt_cantidad.setText("");
    combolotes.setSelectedIndex(0);
   btn_guardar.setEnabled(true);
-  txt_codigo.setEnabled(true);
+
       }
  private void limpiarTabla() {
      
@@ -374,7 +375,7 @@ String cantidad=txt_cantidad.getText();
 String lote= (String) combolotes.getSelectedItem();
     try {
         con=cn.conectarse();
-        ps=con.prepareStatement("insert into cosechas values('"+codigo+"','"+lote+"','"+cantidad+"','"+fecha+"')");
+        ps=con.prepareStatement("insert into cosechas (lote,cantidad,fecha)values('"+lote+"','"+cantidad+"','"+fecha+"')");
         ps.executeUpdate();
         JOptionPane.showMessageDialog(null, "Cosecha agregada correctamente");
         limpiarTabla();
@@ -389,7 +390,7 @@ String lote= (String) combolotes.getSelectedItem();
    String lotes=(String) combolotes.getSelectedItem();
    String cantidad=txt_cantidad.getText();
    String fecha=txt_fecha.getText();
-    if (codigo.equals("")|| cantidad.equals("") || fecha.equals("") || lotes.equals("")) {
+    if (cantidad.equals("") || fecha.equals("") || lotes.equals("")) {
          JOptionPane.showMessageDialog(null, "todos los campos deben estar llenos");
      }
     else{
@@ -403,7 +404,7 @@ String lote= (String) combolotes.getSelectedItem();
             limpiartxt();
             listar();
             btn_guardar.setEnabled(true);
-            txt_codigo.setEnabled(true);
+        
           
         
         } catch (Exception e) {
@@ -425,7 +426,7 @@ String codigo=txt_codigo.getText();
         listar();
         
          btn_guardar.setEnabled(true);
-            txt_codigo.setEnabled(true);
+          
           
     } catch (Exception e) {
     }

@@ -18,6 +18,7 @@ public class Labores extends javax.swing.JInternalFrame {
     public Labores() {
         initComponents();
         listar();
+        txt_codigo.setEnabled(false);
     }
 
     /**
@@ -300,7 +301,7 @@ char c= evt.getKeyChar();
             limpiartxt();
             listar();
             btn_guardar.setEnabled(true);
-            txt_codigo.setEnabled(true);
+  
           
         
         } catch (Exception e) {
@@ -350,7 +351,7 @@ String codigo=txt_codigo.getText();
         listar();
         
          btn_guardar.setEnabled(true);
-            txt_codigo.setEnabled(true);
+          
           
     } catch (Exception e) {
     }
@@ -364,7 +365,7 @@ String codigo=txt_codigo.getText();
    txt_descripcion.setText("");
  
   btn_guardar.setEnabled(true);
-  txt_codigo.setEnabled(true);
+  
       }
  private void limpiarTabla() {
      
@@ -376,18 +377,18 @@ i-=1;
 }
  
  void guardar(){
- String codigo=txt_codigo.getText();
+ 
 String nombre=txt_nombre.getText();
 String descripcion=txt_descripcion.getText();
 
 
-     if (codigo.equals("")|| nombre.equals("") || descripcion.equals("")) {
+     if ( nombre.equals("") || descripcion.equals("")) {
          JOptionPane.showMessageDialog(null, "todos los campos deben estar llenos");
      }
      else{
      try {
          con=cn.conectarse();     
-         ps=con.prepareStatement("INSERT INTO labores VALUES('"+codigo+"','"+nombre+"','"+descripcion+"')"); 
+         ps=con.prepareStatement("INSERT INTO labores (nombre_l,descripcion_l) VALUES('"+nombre+"','"+descripcion+"')"); 
          ps.executeUpdate();
          JOptionPane.showMessageDialog(null, "guardado correctamente");
          limpiarTabla();
