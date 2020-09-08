@@ -13,7 +13,7 @@ public class Conexion {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/banatec", "root", "");
+             con=DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10360024", "sql10360024", "U976fnU2zE");
             
             
         } catch (Exception e) {
