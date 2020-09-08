@@ -15,6 +15,9 @@ import javax.swing.JOptionPane;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import java.awt.Desktop;
+import java.net.URI;
+ 
 
 public class Login extends javax.swing.JFrame {
 
@@ -244,10 +247,20 @@ public class Login extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/wpp.png"))); // NOI18N
         jButton4.setContentAreaFilled(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/linke.png"))); // NOI18N
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         fondo_login.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         fondo_login.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -382,8 +395,26 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+try{
+    Desktop.getDesktop().browse(new URI("https://www.facebook.com/banatec.compan.9"));
+} catch (Exception ex){
+    JOptionPane.showMessageDialog(null,"Error no se puede ejecutar accion");    
+}// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+try{
+    Desktop.getDesktop().browse(new URI("https://www.linkedin.com/in/banatec-compan-9127771b4/"));
+} catch (Exception ex){
+    JOptionPane.showMessageDialog(null,"Error no se puede ejecutar accion");  }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+try{
+    Desktop.getDesktop().browse(new URI("https://wa.me/573126306222"));
+} catch (Exception ex){
+    JOptionPane.showMessageDialog(null,"Error no se puede ejecutar accion");  }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
