@@ -22,7 +22,7 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         i= new Login();
-        this.setTitle(""+usu);
+        this.setTitle("BANATEC  "+usu);
         setIconImage(new ImageIcon(getClass().getResource("/img/icono_nav.png")).getImage());
         setExtendedState(MAXIMIZED_BOTH);
     }
@@ -51,6 +51,9 @@ public class Inicio extends javax.swing.JFrame {
         btncintaje = new javax.swing.JButton();
         btn_cosechas = new javax.swing.JButton();
         btn_asignar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         user = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         edad = new javax.swing.JMenu();
@@ -169,8 +172,16 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("USUARIO");
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("HORA");
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("FECHA");
+
         user.setForeground(new java.awt.Color(255, 255, 255));
-        user.setText("jLabel2");
 
         fondo.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         fondo.setLayer(btn_trabajador, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -179,17 +190,29 @@ public class Inicio extends javax.swing.JFrame {
         fondo.setLayer(btncintaje, javax.swing.JLayeredPane.DEFAULT_LAYER);
         fondo.setLayer(btn_cosechas, javax.swing.JLayeredPane.DEFAULT_LAYER);
         fondo.setLayer(btn_asignar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        fondo.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        fondo.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        fondo.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         fondo.setLayer(user, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fondoLayout.createSequentialGroup()
+                        .addGap(341, 341, 341)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(97, 97, 97)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(32, 32, 32)
+                                .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(fondoLayout.createSequentialGroup()
@@ -205,34 +228,36 @@ public class Inicio extends javax.swing.JFrame {
                             .addGroup(fondoLayout.createSequentialGroup()
                                 .addGap(31, 31, 31)
                                 .addComponent(btn_labores, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                                .addGap(52, 52, 52)))))
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoLayout.createSequentialGroup()
+                                .addGap(52, 52, 52)))
                         .addGap(42, 42, 42)
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_cosechas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(fondoLayout.createSequentialGroup()
                                 .addGap(26, 26, 26)
                                 .addComponent(btn_Lotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(26, 26, 26)))
-                        .addGap(75, 75, 75))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(user)
-                        .addGap(116, 116, 116))))
+                                .addGap(26, 26, 26)))))
+                .addGap(75, 75, 75))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(56, 56, 56))
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(fondoLayout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel2))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel3)
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel4))
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(user)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btncintaje)
                     .addComponent(btn_trabajador)
@@ -445,11 +470,14 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenu edad;
     private javax.swing.JDesktopPane fondo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem lista_cin;
     private javax.swing.JMenuItem lista_tra;
-    private javax.swing.JLabel user;
+    public static javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,7 +16,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import java.awt.Desktop;
+import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.net.URI;
+import java.sql.SQLException;
  
 
 public class Login extends javax.swing.JFrame {
@@ -132,6 +135,11 @@ public class Login extends javax.swing.JFrame {
         pswcontra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pswcontraActionPerformed(evt);
+            }
+        });
+        pswcontra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pswcontraKeyPressed(evt);
             }
         });
         jPanel2.add(pswcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 270, 40));
@@ -415,6 +423,34 @@ try{
 } catch (Exception ex){
     JOptionPane.showMessageDialog(null,"Error no se puede ejecutar accion");  }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void pswcontraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswcontraKeyPressed
+          if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+              try {
+            con = conexion.conectarse();
+            ps=con.prepareStatement("Select * from administradores where correo_a=? and contraseña=?");
+            ps.setString(1,txtcorreo.getText());
+            ps.setString(2,pswcontra.getText());
+
+            rs=ps.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null,"BIENVENIDO");
+                Inicio inicio=new Inicio();
+                inicio.setVisible(true);
+                this.setVisible(false);
+
+            }else{
+                JOptionPane.showMessageDialog(null,"USUARIO O CONTRASEÑA INCORRECTA");
+                txtcorreo.setText("");
+                pswcontra.setText("");
+            }
+
+        } catch (Exception e) {
+
+        }
+   }
+// TODO add your handling code here:
+    }//GEN-LAST:event_pswcontraKeyPressed
 
     /**
      * @param args the command line arguments
