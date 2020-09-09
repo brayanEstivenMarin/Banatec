@@ -486,6 +486,6 @@ try{
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField pswcontra;
-    private javax.swing.JTextField txtcorreo;
+    public static javax.swing.JTextField txtcorreo;
     // End of variables declaration//GEN-END:variables
 }
