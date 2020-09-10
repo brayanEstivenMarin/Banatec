@@ -370,6 +370,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_pswcontraActionPerformed
 
     private void btniniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btniniciarActionPerformed
+
         try {
             con = conexion.conectarse();
             ps=con.prepareStatement("Select * from administradores where correo_a=? and contraseña=?");
@@ -425,7 +426,9 @@ try{
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void pswcontraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswcontraKeyPressed
-          if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+    
+        
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
               try {
             con = conexion.conectarse();
             ps=con.prepareStatement("Select * from administradores where correo_a=? and contraseña=?");

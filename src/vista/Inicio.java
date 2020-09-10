@@ -15,14 +15,17 @@ import javax.swing.ImageIcon;
 public class Inicio extends javax.swing.JFrame {
  static Login i;
  String usu = Login.txtcorreo.getText();
-    
+
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         initComponents();
+        //para mostrar el usuario en el inicio y en la barra de arriba
         i= new Login();
         this.setTitle("BANATEC  "+usu);
+        this.user.setText(usu);
+        //icono del programa 
         setIconImage(new ImageIcon(getClass().getResource("/img/icono_nav.png")).getImage());
         setExtendedState(MAXIMIZED_BOTH);
     }
