@@ -7,9 +7,14 @@ package vista;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
+import javax.swing.Timer;
 /**
  *
  * @author Brayan
@@ -24,14 +29,7 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
        
-        /**fecha y hora 
-       Date fecha = new Date();
-       DateFormat formatofecha=new SimpleDateFormat("dd:MM:yyyy");
-       fechas.setText(formatofecha.format(fecha));
        
-       DateFormat formatoHora = new SimpleDateFormat("HH:nn:ss");
-       reloj.setText(formatoHora.format(fecha));*/
-
        //para mostrar el usuario en el inicio y en la barra de arriba
         i= new Login();
         this.setTitle("BANATEC  "+usu);
@@ -39,8 +37,30 @@ public class Inicio extends javax.swing.JFrame {
         //icono del programa 
         setIconImage(new ImageIcon(getClass().getResource("/img/icono_nav.png")).getImage());
         setExtendedState(MAXIMIZED_BOTH);
+        timer.start();
     }
 
+      
+    
+ //hora y fecha
+    Timer timer = new Timer(1000, new ActionListener() {
+         public void actionPerformed(ActionEvent e){
+             Calendar cal = new GregorianCalendar();
+             int hh, mm, dia, mes, aa;
+             hh=cal.get(Calendar.HOUR);
+             mm=cal.get(Calendar.MINUTE);
+             
+             dia=cal.get(Calendar.DAY_OF_MONTH);
+             mes=cal.get(Calendar.HOUR);
+             aa=cal.get(Calendar.YEAR);
+             
+             reloj.setText(hh+":"+mm);
+             fechas.setText(dia+"/"+mes+"/"+aa);
+                 
+         }
+         
+         });
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -197,7 +217,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/calendario.png"))); // NOI18N
 
-        user.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        user.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         user.setForeground(new java.awt.Color(255, 255, 255));
 
         reloj.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -251,17 +271,17 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGap(299, 299, 299)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(63, 63, 63)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(reloj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fechas, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(105, 105, 105)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fechas, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reloj, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
