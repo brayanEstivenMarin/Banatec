@@ -217,13 +217,13 @@ public class Inicio extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/calendario.png"))); // NOI18N
 
-        user.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        user.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         user.setForeground(new java.awt.Color(255, 255, 255));
 
-        reloj.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        reloj.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         reloj.setForeground(new java.awt.Color(255, 255, 255));
 
-        fechas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        fechas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         fechas.setForeground(new java.awt.Color(255, 255, 255));
 
         fondo.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -294,16 +294,16 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                            .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(reloj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(reloj, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, Short.MAX_VALUE)
-                            .addComponent(fechas, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(199, 199, 199))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
                         .addContainerGap()
