@@ -15,3 +15,17 @@ ALTER TABLE asignacion ADD FOREIGN KEY(labor) REFERENCES labores(id_labor)
 ALTER TABLE asignacion ADD FOREIGN KEY(lote) REFERENCES lotes(id_lote)
 ALTER TABLE cintaje ADD FOREIGN KEY(lote) REFERENCES lotes(id_lote)
 ALTER TABLE cosechas ADD FOREIGN KEY(lote) REFERENCES lotes(id_lote)
+INSERT INTO ADMINISTRADORES VALUES(111,'aaa','aaa','a.com','2323','32','2332e','123')
+INSERT INTO ADMINISTRADORES VALUES(123,'nestor','ortiz','n.com','123','23','robledo','123')
+INSERT INTO ADMINISTRADORES VALUES(1332234,'brayan','marin','brayan123@gmail.com','234454','20','cra 34 45-56','123456')
+INSERT INTO ADMINISTRADORES VALUES(102993922,'James','Arboleda','james@gmail.com','231232','21','Medellin','12345')
+INSERT INTO ADMINISTRADORES VALUES(1216723664,'nestor','ortiz','nestorortizcardona@gmail.com','3126306222','23','robledo','123456')
+COMMIT
+INSERT INTO LABORES VALUES(3,'bolsaje','El trabajador debe embolsar las matas')
+INSERT INTO LABORES VALUES(4,'encintar','El trabajador poner cinta de color a la mata')
+COMMIT
+INSERT INTO LOTES VALUES(1,'lote 1')
+COMMIT
+INSERT INTO TRABAJADORES VALUES(2344,'james','arboleda','4678434','20','cra 56 \u00b754-66')
+INSERT INTO TRABAJADORES VALUES(71834567,'sandra','quintero','3214569345','36','avenida las palmas')
+COMMIT
