@@ -54,6 +54,8 @@ public class Inicio extends javax.swing.JFrame {
              mes=cal.get(Calendar.MONTH);
              aa=cal.get(Calendar.YEAR);
              
+             mes=mes+1;
+             
              reloj.setText(hh+":"+mm);
              fechas.setText(dia+"/"+mes+"/"+aa);
                  
