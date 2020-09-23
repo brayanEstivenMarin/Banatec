@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
  *
@@ -446,6 +447,10 @@ public class Inicio extends javax.swing.JFrame {
         Asignacion asig=new Asignacion();
         fondo.add(asig);
         asig.show();
+        //no dejar mover jframeinternal y maximixar
+        try {
+        asig.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
     }//GEN-LAST:event_btn_asignarActionPerformed
 
     private void btncintajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncintajeActionPerformed
@@ -454,31 +459,51 @@ public class Inicio extends javax.swing.JFrame {
         Cintaje cin=new Cintaje();
         fondo.add(cin);
         cin.show();
-       
+        //no dejar mover jframeinternal y maximixar
+        try {
+        cin.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
     }//GEN-LAST:event_btncintajeActionPerformed
 
     private void btn_LotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LotesActionPerformed
         Lotes lot =new Lotes();
         fondo.add(lot);
         lot.show();
+         //no dejar mover jframeinternal y maximixar
+        try {
+        lot.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
+        
     }//GEN-LAST:event_btn_LotesActionPerformed
 
     private void btn_laboresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_laboresActionPerformed
         Labores lab=new Labores();
         fondo.add(lab);
         lab.show();
+        //no dejar mover jframeinternal y maximixar
+        try {
+        lab.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
     }//GEN-LAST:event_btn_laboresActionPerformed
 
     private void btn_trabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_trabajadorActionPerformed
         Trabajadores tra=new Trabajadores();
         fondo.add(tra);
         tra.show();
+        //no dejar mover jframeinternal y maximixar
+        try {
+        tra.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
     }//GEN-LAST:event_btn_trabajadorActionPerformed
 
     private void btn_cosechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cosechasActionPerformed
         Cosechas cose=new Cosechas();
         fondo.add(cose);
         cose.show();
+        //no dejar mover jframeinternal y maximixar
+        try {
+        cose.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
     }//GEN-LAST:event_btn_cosechasActionPerformed
 
     /**
