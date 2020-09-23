@@ -9,12 +9,14 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
+
 /**
  *
  * @author Brayan
@@ -447,9 +449,12 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_asignarActionPerformed
 
     private void btncintajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncintajeActionPerformed
+       
+        
         Cintaje cin=new Cintaje();
         fondo.add(cin);
         cin.show();
+       
     }//GEN-LAST:event_btncintajeActionPerformed
 
     private void btn_LotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LotesActionPerformed
