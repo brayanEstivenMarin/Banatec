@@ -448,7 +448,7 @@ public class Inicio extends javax.swing.JFrame {
         fondo.add(asig);
         asig.show();
         //no dejar mover jframeinternal y maximixar
-        try {
+      try {
         asig.setMaximum(true);
         } catch(PropertyVetoException e) { e.printStackTrace(); }
     }//GEN-LAST:event_btn_asignarActionPerformed
