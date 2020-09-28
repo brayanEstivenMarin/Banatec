@@ -48,7 +48,7 @@ public class Lista_administradores extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "CEDULA", "NOMBRE", "APELLIDO", "CORREO", "TELEFONO", "EDAD", "DIRECCION"
+                "CÉDULA", "NOMBRE", "APELLIDO", "CORREO", "TELEFONO", "EDAD", "DIRECCIÓN"
             }
         ));
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {

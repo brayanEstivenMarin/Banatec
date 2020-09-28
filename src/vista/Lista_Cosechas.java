@@ -47,7 +47,7 @@ public class Lista_Cosechas extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Lote", "Cantidad", "Fecha"
+                "CÓDIGO", "LOTE", "CANTIDAD", "FECHA"
             }
         ));
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {

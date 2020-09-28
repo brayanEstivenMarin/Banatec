@@ -52,7 +52,7 @@ public class Lista_Trabajadores extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cedula", "Nombre", "Apellidos", "Telefono", "Edad", "Direccion"
+                "CÉDULA", "NOMBRE", "APELLIDOS", "TELÉFONO", "EDAD", "DIRECCIÓN"
             }
         ));
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -66,10 +66,7 @@ public class Lista_Trabajadores extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addGap(12, 12, 12))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

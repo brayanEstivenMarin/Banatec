@@ -57,7 +57,7 @@ public class Trabajadores extends javax.swing.JInternalFrame {
         jButton2.setText("jButton2");
 
         setClosable(true);
-        setTitle("Trabajadores de la Finca");
+        setTitle("TRABAJADORES");
         setPreferredSize(new java.awt.Dimension(1367, 670));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
