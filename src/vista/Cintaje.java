@@ -10,8 +10,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 public class Cintaje extends javax.swing.JInternalFrame {
 
@@ -69,6 +75,7 @@ public class Cintaje extends javax.swing.JInternalFrame {
         btn_actualizar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnnuevo = new javax.swing.JButton();
+        grafica = new javax.swing.JButton();
 
         setClosable(true);
         setPreferredSize(new java.awt.Dimension(1370, 677));
@@ -312,6 +319,13 @@ public class Cintaje extends javax.swing.JInternalFrame {
             }
         });
 
+        grafica.setText("grafica");
+        grafica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                graficaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -331,13 +345,19 @@ public class Cintaje extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(87, 87, 87)))
+                        .addGap(87, 87, 87))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(grafica)
+                        .addGap(178, 178, 178)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(224, 224, 224)
+                .addGap(129, 129, 129)
+                .addComponent(grafica)
+                .addGap(72, 72, 72)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,6 +470,34 @@ public class Cintaje extends javax.swing.JInternalFrame {
         char c= evt.getKeyChar();
         if(c<'0' || c>'9' ) evt.consume();
     }//GEN-LAST:event_txtidKeyTyped
+
+    private void graficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficaActionPerformed
+//grafica
+
+        JFreeChart grafico = null;
+        DefaultCategoryDataset datos = new DefaultCategoryDataset();
+        int dato1 = Integer.parseInt(txtamarillo.getText());
+        int dato2 = Integer.parseInt(txtnaranja.getText());
+        int dato3 = Integer.parseInt(txtazul.getText());
+        int dato4 = Integer.parseInt(txtmorado.getText());
+        int dato5 = Integer.parseInt(txtcafe.getText());
+        int dato6 = Integer.parseInt(txtblanco.getText());
+        int dato7 = Integer.parseInt(txtnegro.getText());
+        datos.addValue(dato1,"Grafica 1","Amarillo");
+        datos.addValue(dato2,"Grafica 1","Naranja");
+        datos.addValue(dato3,"Grafica 1","Azul");
+        datos.addValue(dato4,"Grafica 1","Morado");
+        datos.addValue(dato5,"Grafica 1","Cafe");
+        datos.addValue(dato6,"Grafica 1","Blanco");
+        datos.addValue(dato7,"Grafica 1","CNegro");
+        grafico = ChartFactory.createBarChart("Banatec", "Eje X", "Eje Y",datos ,PlotOrientation.VERTICAL, true, true, false);
+        ChartPanel cPanel = new ChartPanel(grafico);
+        JFrame informacion = new JFrame("Grafica");
+        informacion.getContentPane().add(cPanel);
+        informacion.pack();
+        informacion.setVisible(true);
+
+    }//GEN-LAST:event_graficaActionPerformed
 
     
     void lista() {
@@ -598,6 +646,7 @@ void sumar(){
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btnnuevo;
     private javax.swing.JComboBox<String> combolotes;
+    private javax.swing.JButton grafica;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
