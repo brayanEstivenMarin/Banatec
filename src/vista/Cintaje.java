@@ -319,6 +319,8 @@ public class Cintaje extends javax.swing.JInternalFrame {
             }
         });
 
+        grafica.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        grafica.setForeground(new java.awt.Color(255, 0, 0));
         grafica.setText("grafica");
         grafica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,15 +351,13 @@ public class Cintaje extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(grafica)
-                        .addGap(178, 178, 178)))
+                        .addGap(227, 227, 227)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(grafica)
-                .addGap(72, 72, 72)
+                .addGap(224, 224, 224)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,7 +365,9 @@ public class Cintaje extends javax.swing.JInternalFrame {
                     .addComponent(btnnuevo)
                     .addComponent(btn_actualizar)
                     .addComponent(btn_guardar))
-                .addGap(101, 101, 101))
+                .addGap(38, 38, 38)
+                .addComponent(grafica)
+                .addGap(40, 40, 40))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
