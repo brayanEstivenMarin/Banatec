@@ -320,9 +320,8 @@ public class Cintaje extends javax.swing.JInternalFrame {
         });
 
         grafica.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        grafica.setForeground(new java.awt.Color(153, 0, 153));
+        grafica.setForeground(new java.awt.Color(0, 204, 153));
         grafica.setText("Grafica");
-        grafica.setActionCommand("Grafica");
         grafica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 graficaActionPerformed(evt);
@@ -352,13 +351,15 @@ public class Cintaje extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(grafica)
-                        .addGap(227, 227, 227)))
+                        .addGap(177, 177, 177)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(224, 224, 224)
+                .addGap(148, 148, 148)
+                .addComponent(grafica)
+                .addGap(45, 45, 45)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,9 +367,7 @@ public class Cintaje extends javax.swing.JInternalFrame {
                     .addComponent(btnnuevo)
                     .addComponent(btn_actualizar)
                     .addComponent(btn_guardar))
-                .addGap(38, 38, 38)
-                .addComponent(grafica)
-                .addGap(40, 40, 40))
+                .addGap(109, 109, 109))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 

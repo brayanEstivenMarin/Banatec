@@ -47,10 +47,10 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="573" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" pref="573" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -225,11 +225,11 @@
                       <Component id="jLabel6" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="32" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn_guardar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btn_actualizar" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_eliminar" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="btnnuevo" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_guardar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
