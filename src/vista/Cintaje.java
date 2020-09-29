@@ -320,7 +320,7 @@ public class Cintaje extends javax.swing.JInternalFrame {
         });
 
         grafica.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        grafica.setForeground(new java.awt.Color(255, 0, 0));
+        grafica.setForeground(new java.awt.Color(51, 51, 255));
         grafica.setText("grafica");
         grafica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
