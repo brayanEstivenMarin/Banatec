@@ -12,13 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Administradores extends javax.swing.JInternalFrame {
 
-    public JTextField getTxtnombre() {
-        return txtnombre;
-    }
-
-    public void setTxtnombre(JTextField txtnombre) {
-        this.txtnombre = txtnombre;
-    }
+   
     
     
     
