@@ -6,10 +6,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 
 public class Administradores extends javax.swing.JInternalFrame {
+
+    public JTextField getTxtnombre() {
+        return txtnombre;
+    }
+
+    public void setTxtnombre(JTextField txtnombre) {
+        this.txtnombre = txtnombre;
+    }
+    
+    
+    
   Conexion conexion = new Conexion();
     Connection con;
     PreparedStatement ps;
@@ -109,6 +121,11 @@ public class Administradores extends javax.swing.JInternalFrame {
             }
         });
 
+        txtnombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnombreActionPerformed(evt);
+            }
+        });
         txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtnombreKeyTyped(evt);
@@ -162,6 +179,8 @@ public class Administradores extends javax.swing.JInternalFrame {
         });
 
         jLabel10.setText("CONTRASEÑA:");
+
+        contra.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -489,6 +508,10 @@ public class Administradores extends javax.swing.JInternalFrame {
         if(c<'0' || c>'9' ) evt.consume();
     }//GEN-LAST:event_txttelefonoKeyTyped
 
+    private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
+      
+    }//GEN-LAST:event_txtnombreActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnactua;
@@ -515,7 +538,7 @@ public class Administradores extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtcorreo;
     private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtedad;
-    private javax.swing.JTextField txtnombre;
+    public javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txttelefono;
     // End of variables declaration//GEN-END:variables
 

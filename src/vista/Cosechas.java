@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Cosechas extends javax.swing.JInternalFrame {
@@ -383,7 +384,7 @@ public class Cosechas extends javax.swing.JInternalFrame {
     void eliminar() {
 
         String codigo = txt_codigo.getText();
-        int opc = JOptionPane.showConfirmDialog(null, " ¿Realmente quieres elimiar una cosecha? ");
+        int opc = JOptionPane.showConfirmDialog(null, " Hola ¿Realmente quieres elimiar una cosecha? ");
         if (opc == JOptionPane.YES_OPTION) {
             try {
                 con = cn.conectarse();
@@ -399,15 +400,15 @@ public class Cosechas extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, " Error ");
 
             }
-           
+
         }
-        if(opc==JOptionPane.NO_OPTION){
+        if (opc == JOptionPane.NO_OPTION) {
             JOptionPane.showMessageDialog(null, " NO se pudo elimanr");
-        } 
-        if(opc==JOptionPane.CANCEL_OPTION){
-            JOptionPane.showMessageDialog(null, " Cancelado");
         }
-        
+        if (opc == JOptionPane.CANCEL_OPTION) {
+            JOptionPane.showMessageDialog(null, "Se ha ancelado la operacion ");
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -428,4 +429,5 @@ public class Cosechas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_codigo;
     private javax.swing.JTextField txt_fecha;
     // End of variables declaration//GEN-END:variables
+
 }

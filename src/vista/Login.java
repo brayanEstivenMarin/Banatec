@@ -1,4 +1,3 @@
-
 package vista;
 
 import com.sun.awt.AWTUtilities;
@@ -20,24 +19,23 @@ import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.net.URI;
 import java.sql.SQLException;
- 
 
 public class Login extends javax.swing.JFrame {
 
-  
-    Conexion conexion= new Conexion();
+    Conexion conexion = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-      public Login() {    
-    
-          initComponents();
+
+    public Login() {
+
+        initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/img/icono_nav.png")).getImage());
         setLocationRelativeTo(null); //Centra la vantana en la pantalla
         //
         Shape forma = new RoundRectangle2D.Double(0, 0, getBounds().width, getBounds().height, 20, 20);
         AWTUtilities.setWindowShape(this, forma);
-       
+
     }
 
     /**
@@ -362,7 +360,16 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncerrarActionPerformed
-        System.exit( 0 );
+        int opc = JOptionPane.showConfirmDialog(null, "Seguro que deseas salir? ","SALIR",JOptionPane.YES_NO_OPTION);
+
+        if (opc == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }  if (opc == JOptionPane.NO_OPTION) {
+           JOptionPane.showMessageDialog(null, " Gracias por quedarte");
+        }
+
+
+
     }//GEN-LAST:event_btncerrarActionPerformed
 
     private void pswcontraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswcontraActionPerformed
@@ -373,19 +380,19 @@ public class Login extends javax.swing.JFrame {
 
         try {
             con = conexion.conectarse();
-            ps=con.prepareStatement("Select * from administradores where correo_a=? and contraseña=?");
-            ps.setString(1,txtcorreo.getText());
-            ps.setString(2,pswcontra.getText());
+            ps = con.prepareStatement("Select * from administradores where correo_a=? and contraseña=?");
+            ps.setString(1, txtcorreo.getText());
+            ps.setString(2, pswcontra.getText());
 
-            rs=ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null,"BIENVENIDO");
-                Inicio inicio=new Inicio();
+                JOptionPane.showMessageDialog(null, "BIENVENIDO");
+                Inicio inicio = new Inicio();
                 inicio.setVisible(true);
                 this.setVisible(false);
 
-            }else{
-                JOptionPane.showMessageDialog(null,"USUARIO O CONTRASEÑA INCORRECTA");
+            } else {
+                JOptionPane.showMessageDialog(null, "USUARIO O CONTRASEÑA INCORRECTA");
                 txtcorreo.setText("");
                 pswcontra.setText("");
             }
@@ -404,64 +411,61 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-try{
-    Desktop.getDesktop().browse(new URI("https://www.facebook.com/banatec.compan.9"));
-} catch (Exception ex){
-    JOptionPane.showMessageDialog(null,"Error no se puede ejecutar accion");    
-}// TODO add your handling code here:
+        try {
+            Desktop.getDesktop().browse(new URI("https://www.facebook.com/banatec.compan.9"));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error no se puede ejecutar accion");
+        }// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-try{
-    Desktop.getDesktop().browse(new URI("https://www.linkedin.com/in/banatec-compan-9127771b4/"));
-} catch (Exception ex){
-    JOptionPane.showMessageDialog(null,"Error no se puede ejecutar accion");  }        // TODO add your handling code here:
+        try {
+            Desktop.getDesktop().browse(new URI("https://www.linkedin.com/in/banatec-compan-9127771b4/"));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error no se puede ejecutar accion");
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-try{
-    Desktop.getDesktop().browse(new URI("https://wa.me/573126306222"));
-} catch (Exception ex){
-    JOptionPane.showMessageDialog(null,"Error no se puede ejecutar accion");  }        // TODO add your handling code here:
+        try {
+            Desktop.getDesktop().browse(new URI("https://wa.me/573126306222"));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error no se puede ejecutar accion");
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void pswcontraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswcontraKeyPressed
-    
-        
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-              try {
-            con = conexion.conectarse();
-            ps=con.prepareStatement("Select * from administradores where correo_a=? and contraseña=?");
-            ps.setString(1,txtcorreo.getText());
-            ps.setString(2,pswcontra.getText());
 
-            rs=ps.executeQuery();
-            if (rs.next()) {
-                JOptionPane.showMessageDialog(null,"BIENVENIDO");
-                Inicio inicio=new Inicio();
-                inicio.setVisible(true);
-                this.setVisible(false);
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                con = conexion.conectarse();
+                ps = con.prepareStatement("Select * from administradores where correo_a=? and contraseña=?");
+                ps.setString(1, txtcorreo.getText());
+                ps.setString(2, pswcontra.getText());
 
-            }else{
-                JOptionPane.showMessageDialog(null,"USUARIO O CONTRASEÑA INCORRECTA");
-                txtcorreo.setText("");
-                pswcontra.setText("");
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "BIENVENIDO");
+                    Inicio inicio = new Inicio();
+                    inicio.setVisible(true);
+                    this.setVisible(false);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "USUARIO O CONTRASEÑA INCORRECTA");
+                    txtcorreo.setText("");
+                    pswcontra.setText("");
+                }
+
+            } catch (Exception e) {
+
             }
-
-        } catch (Exception e) {
-
         }
-   }
 // TODO add your handling code here:
     }//GEN-LAST:event_pswcontraKeyPressed
 
     /**
      * @param args the command line arguments
      */
-                                           
-
-            
-
     /**
      * @param args the command line arguments
      */

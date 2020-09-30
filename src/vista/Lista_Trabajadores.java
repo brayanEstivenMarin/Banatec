@@ -43,6 +43,8 @@ public class Lista_Trabajadores extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        txtbuscar = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setResizable(true);
@@ -62,17 +64,41 @@ public class Lista_Trabajadores extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tabla);
 
+        txtbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtbuscarActionPerformed(evt);
+            }
+        });
+        txtbuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscarKeyReleased(evt);
+            }
+        });
+
+        jLabel1.setText("Buscar:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
+                .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(104, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -96,6 +122,14 @@ public class Lista_Trabajadores extends javax.swing.JInternalFrame {
         
 
     }//GEN-LAST:event_tablaMouseClicked
+
+    private void txtbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscarActionPerformed
+        
+    }//GEN-LAST:event_txtbuscarActionPerformed
+
+    private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
+        buscar(txtbuscar.getText());
+    }//GEN-LAST:event_txtbuscarKeyReleased
 
 void listar(){
     try {
@@ -123,9 +157,39 @@ void listar(){
 
 
 }
+
+void buscar(String valor){
+    try {
+      con=cn.conectarse();
+      ps=con.prepareStatement("select * from trabajadores where nombre_t like '"+valor+"%' ");
+      rs=ps.executeQuery();
+      Object[]trabajador= new Object[6];
+      modelo=(DefaultTableModel) tabla.getModel();
+      
+      while(rs.next()){
+         trabajador[0]=rs.getString("cedula_tra");
+         trabajador[1]=rs.getString("nombre_t");
+         trabajador[2]=rs.getString("apellido_t");
+         trabajador[3]=rs.getString("telefono_t");
+         trabajador[4]=rs.getString("edad_t");
+         trabajador[5]=rs.getString("direccion_t");
+            modelo.addRow(trabajador);
+            
+  
+      }
+         tabla.setModel(modelo);
+        
+    } catch (Exception e) {
+    }
+    
+
+
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField txtbuscar;
     // End of variables declaration//GEN-END:variables
 }
