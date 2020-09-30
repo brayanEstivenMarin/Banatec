@@ -256,6 +256,7 @@ public class Cosechas extends javax.swing.JInternalFrame {
         String cantidad = (String) tabla.getValueAt(fila, 2);
         String fecha = (String) tabla.getValueAt(fila, 3);
         txt_codigo.setText(codigo);
+        combolotes.setSelectedItem(lote);
         txt_fecha.setText(fecha);
         txt_cantidad.setText(cantidad);
         btn_guardar.setEnabled(false);
