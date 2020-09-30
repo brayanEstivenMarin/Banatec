@@ -416,7 +416,7 @@ i-=1;
       String direccion= txt_direccion.getText();
       
        if(cedula.equals("") || nombre.equals("") || apellidos.equals("") || edad.equals("") || telefono.equals("") || direccion.equals("")){
-      JOptionPane.showMessageDialog(null,"los campos deben estar todos llenos");
+      JOptionPane.showMessageDialog(null,"Trabajador guardado correctamente");
        }
        else{
       
@@ -434,11 +434,6 @@ i-=1;
      } catch (Exception e) {
               JOptionPane.showMessageDialog(null, "No se pudo crear el trabajador");
      }
- 
-
- 
- 
- 
  
  }
  
@@ -459,7 +454,7 @@ i-=1;
      
      void actualizar(){
          
-         
+          JOptionPane.showMessageDialog(null,"Se debe llenar todos los campos");
         String cedula = txt_cedula.getText();
         String nombre = txt_nombre.getText();
         String apellidos = txt_apellido.getText();
@@ -467,7 +462,7 @@ i-=1;
      String edad = txt_edad.getText();
       String direccion= txt_direccion.getText();
       if(nombre.equals("") || apellidos.equals("") || edad.equals("") || telefono.equals("") || direccion.equals("")){
-      JOptionPane.showMessageDialog(null,"los campos deben estar todos llenos");
+      JOptionPane.showMessageDialog(null,"se actualizo correctamente");
        }
       else{
       
@@ -503,11 +498,7 @@ i-=1;
            JOptionPane.showMessageDialog(null, "Se elimino correctamente");
      } catch (Exception e) {
      }
- 
- 
- 
- 
- 
+
  }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_actualizar;

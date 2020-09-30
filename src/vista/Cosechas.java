@@ -186,12 +186,10 @@ Conexion cn=new Conexion();
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_guardar)
-                        .addComponent(btn_actualizar))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_eliminar)
-                        .addComponent(btn_cancelar)))
+                    .addComponent(btn_guardar)
+                    .addComponent(btn_actualizar)
+                    .addComponent(btn_eliminar)
+                    .addComponent(btn_cancelar))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 

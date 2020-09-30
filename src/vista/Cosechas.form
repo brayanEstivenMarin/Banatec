@@ -122,14 +122,10 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_guardar" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_actualizar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="btn_eliminar" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_cancelar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="btn_guardar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_actualizar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_eliminar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_cancelar" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="28" max="32767" attributes="0"/>
               </Group>

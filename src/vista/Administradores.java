@@ -353,7 +353,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         String direccion = txtdireccion.getText();
          String contraseña=contra.getText();
         if (cedula.equals("") || nombre.equals("") || apellido.equals("") || correo.equals("") || telefono.equals("") || edad.equals("") || direccion.equals("") || contraseña.equals("")) {
-            JOptionPane.showMessageDialog(null, "  POR FAVOR INGRESE LOS DATOS A AGREGAR");
+            JOptionPane.showMessageDialog(null, " agregar correctamente");
 
         } else {
 
@@ -380,7 +380,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         String edad = txtedad.getText();
         String direccion = txtdireccion.getText();
         if (cedula.equals("") || nombre.equals("") || apellido.equals("") || correo.equals("") || telefono.equals("") || edad.equals("") || direccion.equals("")) {
-            JOptionPane.showMessageDialog(null, "  POR FAVOR INGRESE LOS DATOS A ACTUALIZAR");
+            JOptionPane.showMessageDialog(null, "existen campos vacios");
 
         } else {
             try {
@@ -423,6 +423,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         contra.setText("");
         btnagregar.setEnabled(true);
          txtcedula.setEnabled(true);
+         
 
     }
 
