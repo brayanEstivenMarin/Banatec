@@ -1,6 +1,4 @@
-
 package vista;
-
 
 import controlador.Conexion;
 import java.sql.Connection;
@@ -12,28 +10,26 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 public class Cosechas extends javax.swing.JInternalFrame {
-Conexion cn=new Conexion();
+
+    Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
     DefaultTableModel modelo;
-    
+
     public Cosechas() {
-        
+
         initComponents();
         listar();
-      txt_fecha.setText(fecha_actual());
+        txt_fecha.setText(fecha_actual());
         cargar_lotes(combolotes);
-         txt_codigo.setEnabled(false);
-     
-        
+        txt_codigo.setEnabled(false);
+
     }
 
-    
     @SuppressWarnings("unchecked")
-    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -232,19 +228,19 @@ Conexion cn=new Conexion();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-      guardar();
+        guardar();
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-      actualizar();       
+        actualizar();
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-      eliminar();
+        eliminar();
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
-       limpiartxt();
+        limpiartxt();
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void txt_fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fechaActionPerformed
@@ -252,11 +248,11 @@ Conexion cn=new Conexion();
     }//GEN-LAST:event_txt_fechaActionPerformed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-        int fila=tabla.getSelectedRow();
-       String codigo=(String)tabla.getValueAt(fila,0);
-        String lote=(String)tabla.getValueAt(fila,1);
-        String cantidad=(String)tabla.getValueAt(fila,2);
-        String fecha=(String)tabla.getValueAt(fila,3);
+        int fila = tabla.getSelectedRow();
+        String codigo = (String) tabla.getValueAt(fila, 0);
+        String lote = (String) tabla.getValueAt(fila, 1);
+        String cantidad = (String) tabla.getValueAt(fila, 2);
+        String fecha = (String) tabla.getValueAt(fila, 3);
         txt_codigo.setText(codigo);
         txt_fecha.setText(fecha);
         txt_cantidad.setText(cantidad);
@@ -265,147 +261,155 @@ Conexion cn=new Conexion();
     }//GEN-LAST:event_tablaMouseClicked
 
     private void txt_codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyTyped
-char c= evt.getKeyChar();
-   if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txt_codigoKeyTyped
 
     private void txt_cantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cantidadKeyTyped
-char c= evt.getKeyChar();
-   if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txt_cantidadKeyTyped
 
-   public static String fecha_actual(){
-       Date hoy=new Date();
-       SimpleDateFormat formato =new SimpleDateFormat("YYYY/MM/dd");
-       return formato.format(hoy);
- 
-    }
-   
-   public void cargar_lotes(JComboBox cbox_lotes){
-       
-       try {
-            con=cn.conectarse();
-            ps=con.prepareStatement("select id_lote from lotes");    
-            rs=ps.executeQuery();
-            cbox_lotes.addItem("selecciona un lote ya registrado");
-            
-           while (rs.next()) {               
-               cbox_lotes.addItem(rs.getString("id_lote"));
-               
-           }
-   
-       } catch (Exception e) {
-           JOptionPane.showMessageDialog(null,e);
-       }
+    public static String fecha_actual() {
+        Date hoy = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("YYYY/MM/dd");
+        return formato.format(hoy);
 
-   }
-    void limpiartxt(){
-   txt_codigo.setText("");
-   txt_cantidad.setText("");
-   combolotes.setSelectedIndex(0);
-  btn_guardar.setEnabled(true);
-
-      }
- private void limpiarTabla() {
-     
-for (int i = 0; i < tabla.getRowCount(); i++) {
-modelo.removeRow(i);
-i-=1;
-
-
-}
-}
-void listar(){
-
-    try {
-        con=cn.conectarse();
-        ps=con.prepareStatement("select * from cosechas");
-        rs=ps.executeQuery();
-      
-        Object[] labor =new Object[4];
-        modelo=(DefaultTableModel)tabla.getModel();
-        while(rs.next()){
-        labor[0]=rs.getString("id_cosecha");
-        labor[1]=rs.getString("lote");
-        labor[2]=rs.getString("cantidad");
-        labor[3]=rs.getString("fecha");
-        modelo.addRow(labor);
-        
-        }
-             
-    } catch (Exception e) {
     }
 
+    public void cargar_lotes(JComboBox cbox_lotes) {
 
-}
-void guardar(){
-String codigo=txt_codigo.getText();
-String fecha=txt_fecha.getText();
-String cantidad=txt_cantidad.getText();
-String lote= (String) combolotes.getSelectedItem();
-    try {
-        con=cn.conectarse();
-        ps=con.prepareStatement("insert into cosechas (lote,cantidad,fecha)values('"+lote+"','"+cantidad+"','"+fecha+"')");
-        ps.executeUpdate();
-        JOptionPane.showMessageDialog(null, "Cosecha agregada correctamente");
-        limpiarTabla();
-        limpiartxt();
-        listar();
-    } catch (Exception e) {
-    }
-}
-
-   void actualizar(){
-   String codigo=txt_codigo.getText();
-   String lotes=(String) combolotes.getSelectedItem();
-   String cantidad=txt_cantidad.getText();
-   String fecha=txt_fecha.getText();
-    if (cantidad.equals("") || fecha.equals("") || lotes.equals("")) {
-         JOptionPane.showMessageDialog(null, "todos los campos deben estar llenos");
-     }
-    else{
-   
         try {
-            con=cn.conectarse();
-            ps=con.prepareStatement("UPDATE cosechas SET lote='"+lotes+"',cantidad='"+cantidad+"',fecha='"+fecha+"' where id_cosecha='"+codigo+"'");
+            con = cn.conectarse();
+            ps = con.prepareStatement("select id_lote from lotes");
+            rs = ps.executeQuery();
+            cbox_lotes.addItem("selecciona un lote ya registrado");
+
+            while (rs.next()) {
+                cbox_lotes.addItem(rs.getString("id_lote"));
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+
+    void limpiartxt() {
+        txt_codigo.setText("");
+        txt_cantidad.setText("");
+        combolotes.setSelectedIndex(0);
+        btn_guardar.setEnabled(true);
+
+    }
+
+    private void limpiarTabla() {
+
+        for (int i = 0; i < tabla.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i -= 1;
+
+        }
+    }
+
+    void listar() {
+
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("select * from cosechas");
+            rs = ps.executeQuery();
+
+            Object[] labor = new Object[4];
+            modelo = (DefaultTableModel) tabla.getModel();
+            while (rs.next()) {
+                labor[0] = rs.getString("id_cosecha");
+                labor[1] = rs.getString("lote");
+                labor[2] = rs.getString("cantidad");
+                labor[3] = rs.getString("fecha");
+                modelo.addRow(labor);
+
+            }
+
+        } catch (Exception e) {
+        }
+
+    }
+
+    void guardar() {
+        String codigo = txt_codigo.getText();
+        String fecha = txt_fecha.getText();
+        String cantidad = txt_cantidad.getText();
+        String lote = (String) combolotes.getSelectedItem();
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("insert into cosechas (lote,cantidad,fecha)values('" + lote + "','" + cantidad + "','" + fecha + "')");
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "se actualizo correctamente");
+            JOptionPane.showMessageDialog(null, "Cosecha agregada correctamente");
             limpiarTabla();
             limpiartxt();
             listar();
-            btn_guardar.setEnabled(true);
-        
-          
-        
         } catch (Exception e) {
+        }
+    }
+
+    void actualizar() {
+        String codigo = txt_codigo.getText();
+        String lotes = (String) combolotes.getSelectedItem();
+        String cantidad = txt_cantidad.getText();
+        String fecha = txt_fecha.getText();
+        if (cantidad.equals("") || fecha.equals("") || lotes.equals("")) {
+            JOptionPane.showMessageDialog(null, "todos los campos deben estar llenos");
+        } else {
+
+            try {
+                con = cn.conectarse();
+                ps = con.prepareStatement("UPDATE cosechas SET lote='" + lotes + "',cantidad='" + cantidad + "',fecha='" + fecha + "' where id_cosecha='" + codigo + "'");
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "se actualizo correctamente");
+                limpiarTabla();
+                limpiartxt();
+                listar();
+                btn_guardar.setEnabled(true);
+
+            } catch (Exception e) {
+            }
+
+        }
+    }
+
+    void eliminar() {
+
+        String codigo = txt_codigo.getText();
+        int opc = JOptionPane.showConfirmDialog(null, " ¿Realmente quieres elimiar una cosecha? ");
+        if (opc == JOptionPane.YES_OPTION) {
+            try {
+                con = cn.conectarse();
+                ps = con.prepareStatement("delete from cosechas where id_cosecha='" + codigo + "'");
+                ps.executeUpdate();
+                limpiarTabla();
+                limpiartxt();
+                listar();
+                JOptionPane.showMessageDialog(null, " Cosecha eliminada ");
+                btn_guardar.setEnabled(true);
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, " Error ");
+
+            }
+           
+        }
+        if(opc==JOptionPane.NO_OPTION){
+            JOptionPane.showMessageDialog(null, " NO se pudo elimanr");
+        } 
+        if(opc==JOptionPane.CANCEL_OPTION){
+            JOptionPane.showMessageDialog(null, " Cancelado");
         }
         
     }
-        }  
-   
-   void eliminar(){
-String codigo=txt_codigo.getText();
-    try {
-        con=cn.conectarse();
-        ps=con.prepareStatement("delete from cosechas where id_cosecha='"+codigo+"'");
-        ps.executeUpdate();
-        
-       
-        limpiarTabla();
-        limpiartxt();
-        listar();
-        JOptionPane.showMessageDialog(null, " Eliminado correctamente " );
-         btn_guardar.setEnabled(true);
-          
-          
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null," ERROR ");
-    }
 
-
-
-}
-   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_cancelar;
@@ -425,4 +429,3 @@ String codigo=txt_codigo.getText();
     private javax.swing.JTextField txt_fecha;
     // End of variables declaration//GEN-END:variables
 }
-
