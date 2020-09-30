@@ -301,6 +301,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="contra">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

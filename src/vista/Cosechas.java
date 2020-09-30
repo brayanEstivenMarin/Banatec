@@ -390,15 +390,16 @@ String codigo=txt_codigo.getText();
         ps=con.prepareStatement("delete from cosechas where id_cosecha='"+codigo+"'");
         ps.executeUpdate();
         
-        JOptionPane.showMessageDialog(null, "se elimino  correctamente");
+       
         limpiarTabla();
         limpiartxt();
         listar();
-        
+        JOptionPane.showMessageDialog(null, " Eliminado correctamente " );
          btn_guardar.setEnabled(true);
           
           
     } catch (Exception e) {
+        JOptionPane.showMessageDialog(null," ERROR ");
     }
 
 

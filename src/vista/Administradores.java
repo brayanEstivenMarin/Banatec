@@ -314,6 +314,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         txtdireccion.setText(direccion);
         btnagregar.setEnabled(false);
         txtcedula.setEnabled(false);
+       contra.setEnabled(false);
 
     }//GEN-LAST:event_tablaMouseClicked
 
@@ -353,7 +354,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         String direccion = txtdireccion.getText();
          String contraseña=contra.getText();
         if (cedula.equals("") || nombre.equals("") || apellido.equals("") || correo.equals("") || telefono.equals("") || edad.equals("") || direccion.equals("") || contraseña.equals("")) {
-            JOptionPane.showMessageDialog(null, " agregar correctamente");
+            JOptionPane.showMessageDialog(null, " Los campos deben de estar todos llenos");
 
         } else {
 
@@ -363,7 +364,8 @@ public class Administradores extends javax.swing.JInternalFrame {
                 ps.executeUpdate();
                 limpia();
                 lista();
-                cancelar();
+               
+                JOptionPane.showMessageDialog(null, " Administrador registrado correctamente ");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "!UPS¡PARECE QUE TENEMOS UN ERROR");
             }
@@ -380,7 +382,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         String edad = txtedad.getText();
         String direccion = txtdireccion.getText();
         if (cedula.equals("") || nombre.equals("") || apellido.equals("") || correo.equals("") || telefono.equals("") || edad.equals("") || direccion.equals("")) {
-            JOptionPane.showMessageDialog(null, "existen campos vacios");
+            JOptionPane.showMessageDialog(null, " Los campos deben estar llenos ");
 
         } else {
             try {
@@ -388,8 +390,8 @@ public class Administradores extends javax.swing.JInternalFrame {
                 ps.executeUpdate();
                 limpia();
                 lista();
-                cancelar();
-                JOptionPane.showMessageDialog(null, " ACTUALIZADO CORRECTAMENTE");
+              
+                JOptionPane.showMessageDialog(null, " Administrador actualizado ");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "!UPS¡PARECE QUE TENEMOS UN ERROR");
             }
@@ -402,10 +404,10 @@ public class Administradores extends javax.swing.JInternalFrame {
             String cedula = txtcedula.getText();
             ps = con.prepareStatement("DELETE FROM administradores where cedula_admin='" + cedula + "'");
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, " ELIMINADO CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, " Administrador eliminado " );
             limpia();
             lista();
-            cancelar();
+          
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "!UPS¡PARECE QUE TENEMOS UN ERROR");
@@ -423,7 +425,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         contra.setText("");
         btnagregar.setEnabled(true);
          txtcedula.setEnabled(true);
-         
+          JOptionPane.showMessageDialog(null, " Los campos se han limpiado correctamente ");
 
     }
 
