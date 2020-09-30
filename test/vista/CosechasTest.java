@@ -44,7 +44,7 @@ public class CosechasTest {
     @Test
     public void testFecha_actual() {
         System.out.println("fecha_actual");
-        String expResult = "2020/09/30";
+        String expResult = "2020/09/28";
         String result = Cosechas.fecha_actual();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

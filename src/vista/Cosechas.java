@@ -242,6 +242,7 @@ public class Cosechas extends javax.swing.JInternalFrame {
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         limpiartxt();
+        JOptionPane.showMessageDialog(null, "Los campos se han limpiado correctamente.");
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void txt_fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fechaActionPerformed
@@ -304,6 +305,8 @@ public class Cosechas extends javax.swing.JInternalFrame {
         txt_cantidad.setText("");
         combolotes.setSelectedIndex(0);
         btn_guardar.setEnabled(true);
+        
+       
 
     }
 
@@ -384,7 +387,7 @@ public class Cosechas extends javax.swing.JInternalFrame {
     void eliminar() {
 
         String codigo = txt_codigo.getText();
-        int opc = JOptionPane.showConfirmDialog(null, " Hola ¿Realmente quieres elimiar una cosecha? ");
+        int opc = JOptionPane.showConfirmDialog(null, "¿Realmente quiere eliminar una cosecha? ");
         if (opc == JOptionPane.YES_OPTION) {
             try {
                 con = cn.conectarse();
