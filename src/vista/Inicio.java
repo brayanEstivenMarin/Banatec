@@ -5,11 +5,15 @@
  */
 package vista;
 
+import controlador.Conexion;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -25,18 +29,20 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 public class Inicio extends javax.swing.JFrame {
  static Login i;
  String usu = Login.txtcorreo.getText();
-
+ String nombre=usu;
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
+    Conexion conexion = new Conexion();
+ 
+ 
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         initComponents();
-       
-       
        //para mostrar el usuario en el inicio y en la barra de arriba
-        i= new Login();
-        this.setTitle("BANATEC  "+usu);
-        this.user.setText(usu);
+        usuario();
         //icono del programa 
         setIconImage(new ImageIcon(getClass().getResource("/img/icono_nav.png")).getImage());
         setExtendedState(MAXIMIZED_BOTH);
@@ -44,7 +50,22 @@ public class Inicio extends javax.swing.JFrame {
     }
 
       
+    public void usuario(){
+        try {
+            con = conexion.conectarse();
+            ps = con.prepareStatement("select nombre_a, apellido_a from administradores where correo_a='"+nombre+"'");
+            rs = ps.executeQuery();
+            while (rs.next()){
+            usu=rs.getString(1);
+            String ape=rs.getString("apellido_a");
+            i= new Login();
+            this.setTitle("BANATEC "+usu);
+            this.user.setText(usu+" "+ape);
+}
+        } catch (Exception e) {
+        }
     
+    }
  //hora y fecha
     Timer timer = new Timer(1000, new ActionListener() {
          public void actionPerformed(ActionEvent e){
@@ -102,6 +123,7 @@ public class Inicio extends javax.swing.JFrame {
         lista_cin = new javax.swing.JMenuItem();
         lista_tra = new javax.swing.JMenuItem();
         admin = new javax.swing.JMenuItem();
+        costos = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         administador = new javax.swing.JMenuItem();
 
@@ -281,7 +303,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(fechas, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
@@ -374,6 +396,19 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         edad.add(admin);
+
+        costos.setText("Costos");
+        costos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                costosMouseClicked(evt);
+            }
+        });
+        costos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                costosActionPerformed(evt);
+            }
+        });
+        edad.add(costos);
 
         jMenuBar1.add(edad);
 
@@ -506,6 +541,16 @@ public class Inicio extends javax.swing.JFrame {
         } catch(PropertyVetoException e) { e.printStackTrace(); }
     }//GEN-LAST:event_btn_cosechasActionPerformed
 
+    private void costosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costosActionPerformed
+           Costos co= new Costos();
+     fondo.add(co);
+     co.show();
+    }//GEN-LAST:event_costosActionPerformed
+
+    private void costosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_costosMouseClicked
+  
+    }//GEN-LAST:event_costosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -550,6 +595,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btn_labores;
     private javax.swing.JButton btn_trabajador;
     private javax.swing.JButton btncintaje;
+    private javax.swing.JMenuItem costos;
     private javax.swing.JMenu edad;
     private javax.swing.JLabel fechas;
     private javax.swing.JDesktopPane fondo;

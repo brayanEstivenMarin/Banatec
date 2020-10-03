@@ -465,8 +465,8 @@ String trabajador= (String) combo_tra.getSelectedItem();
 String asignador= (String) combo_asig.getSelectedItem();
 String lote= (String) combo_lote.getSelectedItem();
 String labor= (String) combo_labor.getSelectedItem();
-String inicio=txt_fin.getText();
-String fin=txt_inicio.getText();
+String inicio=txt_inicio.getText();
+String fin=txt_fin.getText();
 
 
     try {
@@ -483,13 +483,12 @@ String fin=txt_inicio.getText();
 
    
    
-   void eliminar(){
+   public void eliminar(){
 String codigo=txt_codigo.getText();
     try {
         con=cn.conectarse();
         ps=con.prepareStatement("delete from asignacion where id_asig='"+codigo+"'");
         ps.executeUpdate();
-        
         JOptionPane.showMessageDialog(null, "Se elimino correctamente");
         limpiarTabla();
         limpiartxt();
