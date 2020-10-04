@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Cosechas extends javax.swing.JInternalFrame {
-
+//ffffff
     Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
