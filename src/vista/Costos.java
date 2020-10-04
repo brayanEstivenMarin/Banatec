@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package vista;
-
+//Costos
 import controlador.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
