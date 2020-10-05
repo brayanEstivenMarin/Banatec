@@ -5,12 +5,12 @@
  */
 package vista;
 
-
 import controlador.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -22,11 +22,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Asignacion extends javax.swing.JInternalFrame {
 
-Conexion cn=new Conexion();
+    Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
     DefaultTableModel modelo;
+
     public Asignacion() {
         initComponents();
         txt_codigo.setEnabled(false);
@@ -63,8 +64,6 @@ Conexion cn=new Conexion();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txt_fin = new javax.swing.JTextField();
-        txt_inicio = new javax.swing.JTextField();
         combo_labor = new javax.swing.JComboBox<>();
         combo_lote = new javax.swing.JComboBox<>();
         combo_asig = new javax.swing.JComboBox<>();
@@ -75,6 +74,8 @@ Conexion cn=new Conexion();
         btn_actualizar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btnnuevo = new javax.swing.JButton();
+        txt_inicio = new com.toedter.calendar.JDateChooser();
+        txt_fin = new com.toedter.calendar.JDateChooser();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,20 +131,6 @@ Conexion cn=new Conexion();
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("FECHA FIN:");
-
-        txt_fin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_fin.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_finKeyTyped(evt);
-            }
-        });
-
-        txt_inicio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_inicio.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_inicioKeyTyped(evt);
-            }
-        });
 
         combo_labor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         combo_labor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -208,6 +195,10 @@ Conexion cn=new Conexion();
             }
         });
 
+        txt_inicio.setDateFormatString("yyyy-MM-d");
+
+        txt_fin.setDateFormatString("yyyy-MM-d");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -236,14 +227,15 @@ Conexion cn=new Conexion();
                         .addGap(43, 43, 43)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(combo_lote, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(combo_labor, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(combo_asig, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(combo_tra, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_fin, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txt_costo, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txt_codigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txt_codigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txt_fin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_inicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(combo_labor, javax.swing.GroupLayout.Alignment.LEADING, 0, 140, Short.MAX_VALUE))))
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(61, 61, 61))
@@ -276,13 +268,15 @@ Conexion cn=new Conexion();
                     .addComponent(jLabel7)
                     .addComponent(combo_labor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_fin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(txt_fin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_actualizar)
@@ -306,7 +300,7 @@ Conexion cn=new Conexion();
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
+                .addContainerGap(159, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81))
         );
@@ -315,28 +309,48 @@ Conexion cn=new Conexion();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
-       limpiartxt();
+        limpiartxt();
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-      eliminar();
+        eliminar();
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-      
+actualizar();
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-       guardar();
+        guardar();
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-      
+        int fila = tabla.getSelectedRow();
+        String codigo = (String) tabla.getValueAt(fila, 0);
+        String costo = (String) tabla.getValueAt(fila, 1);
+        String tra_it = (String) tabla.getValueAt(fila, 2);
+        String asig_it = (String) tabla.getValueAt(fila, 3);
+        String lote_it = (String) tabla.getValueAt(fila, 4);
+        String labor_it = (String) tabla.getValueAt(fila, 5);
+        String fec_in = (String) tabla.getValueAt(fila, 6);
+        String fec_fin = (String) tabla.getValueAt(fila, 7);
+
+        txt_codigo.setText(codigo);
+        txt_costo.setText(costo);
+        combo_tra.setSelectedItem(tra_it);
+        combo_asig.setSelectedItem(asig_it);
+        combo_lote.setSelectedItem(lote_it);
+        combo_labor.setSelectedItem(labor_it);
+        txt_inicio.setDateFormatString(fec_in);
+        txt_fin.setDateFormatString(fec_fin);
+        btn_guardar.setEnabled(false);
+        txt_codigo.setEnabled(false);
     }//GEN-LAST:event_tablaMouseClicked
 
     private void txt_codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();
     }//GEN-LAST:event_txt_codigoKeyTyped
 
     private void txt_costoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_costoKeyTyped
@@ -347,183 +361,195 @@ Conexion cn=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_traActionPerformed
 
-    private void txt_inicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_inicioKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_inicioKeyTyped
+    public void cargar_lotes(JComboBox cbox_lotes) {
 
-    private void txt_finKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_finKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_finKeyTyped
-
-
-     public void cargar_lotes(JComboBox cbox_lotes){
-       
-       try {
-            con=cn.conectarse();
-            ps=con.prepareStatement("select id_lote from lotes");    
-            rs=ps.executeQuery();
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("select id_lote from lotes");
+            rs = ps.executeQuery();
             cbox_lotes.addItem("Selecciona un lote ");
-            
-           while (rs.next()) {               
-               cbox_lotes.addItem(rs.getString("id_lote"));
-               
-           }
-   
-       } catch (Exception e) {
-           JOptionPane.showMessageDialog(null,e);
-       }
 
-   }
-     
-     
-       public void cargar_labor(JComboBox cbox_labor){
-       
-       try {
-            con=cn.conectarse();
-            ps=con.prepareStatement("select id_labor from labores");    
-            rs=ps.executeQuery();
-            cbox_labor.addItem("Selecciona una labor ");
-            
-           while (rs.next()) {               
-               cbox_labor.addItem(rs.getString("id_labor"));
-               
-           }
-   
-       } catch (Exception e) {
-           JOptionPane.showMessageDialog(null,e);
-       }
+            while (rs.next()) {
+                cbox_lotes.addItem(rs.getString("id_lote"));
 
-   }
-       
-     public void cargar_trabajadores(JComboBox cbox_tra){
-       
-       try {
-            con=cn.conectarse();
-            ps=con.prepareStatement("select cedula_tra from trabajadores");    
-            rs=ps.executeQuery();
-            cbox_tra.addItem("Selecciona un trabajador ");
-            
-           while (rs.next()) {               
-               cbox_tra.addItem(rs.getString("cedula_tra"));
-               
-           }
-   
-       } catch (Exception e) {
-           JOptionPane.showMessageDialog(null,e);
-       }
+            }
 
-   }
-     
-       public void cargar_asignador(JComboBox cbox_asig){
-       
-       try {
-            con=cn.conectarse();
-            ps=con.prepareStatement("select cedula_admin from administradores");    
-            rs=ps.executeQuery();
-            cbox_asig.addItem("Selecciona un asignador");
-            
-           while (rs.next()) {               
-               cbox_asig.addItem(rs.getString("cedula_admin"));
-           }
-   
-       } catch (Exception e) {
-           JOptionPane.showMessageDialog(null,e);
-       }
-
-   }
-     void listar(){
-
-    try {
-        con=cn.conectarse();
-        ps=con.prepareStatement("select * from asignacion");
-        rs=ps.executeQuery();
-      
-        Object[] labor =new Object[8];
-        modelo=(DefaultTableModel)tabla.getModel();
-        while(rs.next()){
-        labor[0]=rs.getString("id_asig");
-        labor[1]=rs.getString("costo");
-        labor[2]=rs.getString("trabajador");
-        labor[3]=rs.getString("asignador");
-        labor[4]=rs.getString("lote");
-        labor[5]=rs.getString("labor");
-        labor[6]=rs.getString("f_inicio");
-        labor[7]=rs.getString("f_fin");
-        modelo.addRow(labor);
-        
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-             
-    } catch (Exception e) {
+
     }
 
+    public void cargar_labor(JComboBox cbox_labor) {
 
-}
-void guardar(){
-String codigo=txt_codigo.getText();
-String costo=txt_costo.getText();
-String trabajador= (String) combo_tra.getSelectedItem();
-String asignador= (String) combo_asig.getSelectedItem();
-String lote= (String) combo_lote.getSelectedItem();
-String labor= (String) combo_labor.getSelectedItem();
-String inicio=txt_inicio.getText();
-String fin=txt_fin.getText();
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("select id_labor from labores");
+            rs = ps.executeQuery();
+            cbox_labor.addItem("Selecciona una labor ");
 
+            while (rs.next()) {
+                cbox_labor.addItem(rs.getString("id_labor"));
 
-    try {
-        con=cn.conectarse();
-        ps=con.prepareStatement("insert into asignacion (costo,trabajador,asignador,lote,labor,f_inicio,f_fin) values('"+costo+"','"+trabajador+"','"+asignador+"','"+lote+"','"+labor+"','"+inicio+"','"+fin+"')");
-        ps.executeUpdate();
-        JOptionPane.showMessageDialog(null, "asignacion agregada correctamente");
-        limpiarTabla();
-        limpiartxt();
-        listar();
-    } catch (Exception e) {
-    }
-}
+            }
 
-   
-   
-   public void eliminar(){
-String codigo=txt_codigo.getText();
-    try {
-        con=cn.conectarse();
-        ps=con.prepareStatement("delete from asignacion where id_asig='"+codigo+"'");
-        ps.executeUpdate();
-        JOptionPane.showMessageDialog(null, "Se elimino correctamente");
-        limpiarTabla();
-        limpiartxt();
-        listar();
-        
-         btn_guardar.setEnabled(true);
-          
-          
-    } catch (Exception e) {
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }
 
+    public void cargar_trabajadores(JComboBox cbox_tra) {
 
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("select cedula_tra from trabajadores");
+            rs = ps.executeQuery();
+            cbox_tra.addItem("Selecciona un trabajador ");
 
-}
-     void limpiartxt(){
-   txt_codigo.setText("");
-   txt_costo.setText("");
-   combo_tra.setSelectedIndex(0);
-    combo_asig.setSelectedIndex(0);
-     combo_lote.setSelectedIndex(0);
-      combo_labor.setSelectedIndex(0);
-       txt_inicio.setText("");
-        txt_fin.setText("");
-  btn_guardar.setEnabled(true);
+            while (rs.next()) {
+                cbox_tra.addItem(rs.getString("cedula_tra"));
 
-      }
-   private void limpiarTabla() {
-     
-for (int i = 0; i < tabla.getRowCount(); i++) {
-modelo.removeRow(i);
-i-=1;
+            }
 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
-}
-}
+    }
+
+    public void cargar_asignador(JComboBox cbox_asig) {
+
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("select cedula_admin from administradores");
+            rs = ps.executeQuery();
+            cbox_asig.addItem("Selecciona un asignador");
+
+            while (rs.next()) {
+                cbox_asig.addItem(rs.getString("cedula_admin"));
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+
+    void listar() {
+
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("select * from asignacion");
+            rs = ps.executeQuery();
+
+            Object[] labor = new Object[8];
+            modelo = (DefaultTableModel) tabla.getModel();
+            while (rs.next()) {
+                labor[0] = rs.getString("id_asig");
+                labor[1] = rs.getString("costo");
+                labor[2] = rs.getString("trabajador");
+                labor[3] = rs.getString("asignador");
+                labor[4] = rs.getString("lote");
+                labor[5] = rs.getString("labor");
+                labor[6] = rs.getString("f_inicio");
+                labor[7] = rs.getString("f_fin");
+                modelo.addRow(labor);
+
+            }
+
+        } catch (Exception e) {
+        }
+
+    }
+
+    void guardar() {
+        String codigo = txt_codigo.getText();
+        String costo = txt_costo.getText();
+        String trabajador = (String) combo_tra.getSelectedItem();
+        String asignador = (String) combo_asig.getSelectedItem();
+        String lote = (String) combo_lote.getSelectedItem();
+        String labor = (String) combo_labor.getSelectedItem();
+        String inicio = txt_inicio.getDateFormatString();
+        String fin = txt_fin.getDateFormatString();
+
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("insert into asignacion (costo,trabajador,asignador,lote,labor,f_inicio,f_fin) values('" + costo + "','" + trabajador + "','" + asignador + "','" + lote + "','" + labor + "','" + inicio + "','" + fin + "')");
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "asignacion agregada correctamente");
+            limpiarTabla();
+            limpiartxt();
+            listar();
+        } catch (Exception e) {
+        }
+    }
+void actualizar() {
+
+        String codigo = txt_codigo.getText();
+        String costo = txt_costo.getText();
+        String trabajador = (String) combo_tra.getSelectedItem();
+        String asignador = (String) combo_asig.getSelectedItem();
+        String lote = (String) combo_lote.getSelectedItem();
+        String labor = (String) combo_labor.getSelectedItem();
+        String inicio = txt_inicio.getDateFormatString();
+        String fin = txt_fin.getDateFormatString();
+      if (codigo.equals("") || costo.equals("") || trabajador.equals("") || asignador.equals("") || lote.equals("") || labor.equals("") || inicio.equals("") || fin.equals("")) {
+            JOptionPane.showMessageDialog(null, " Los campos deben estar todos llenos ");
+        } else {
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("update asignacion set  costo='" + costo + "',trabajador='" + trabajador + "',asignador='" + asignador + "',lote='" + lote + "',labor='" + labor + "',f_inicio='" + inicio + "',f_fin='" + fin + "' where id_asig='" + codigo + "'");
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "se actualizo correctamente");
+            limpiarTabla();
+            limpiartxt();
+            listar();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        } 
+    }
+    public void eliminar() {
+        String codigo = txt_codigo.getText();
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("delete from asignacion where id_asig='" + codigo + "'");
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Se elimino correctamente");
+            limpiarTabla();
+            limpiartxt();
+            listar();
+
+            btn_guardar.setEnabled(true);
+
+        } catch (Exception e) {
+        }
+
+    }
+
+    void limpiartxt() {
+        txt_codigo.setText("");
+        txt_costo.setText("");
+        combo_tra.setSelectedIndex(0);
+        combo_asig.setSelectedIndex(0);
+        combo_lote.setSelectedIndex(0);
+        combo_labor.setSelectedIndex(0);
+        txt_inicio.setDateFormatString("");
+        txt_fin.setDateFormatString("");
+        btn_guardar.setEnabled(true);
+
+    }
+
+    private void limpiarTabla() {
+
+        for (int i = 0; i < tabla.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i -= 1;
+
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_eliminar;
@@ -548,7 +574,7 @@ i-=1;
     private javax.swing.JTable tabla;
     private javax.swing.JTextField txt_codigo;
     private javax.swing.JTextField txt_costo;
-    private javax.swing.JTextField txt_fin;
-    private javax.swing.JTextField txt_inicio;
+    private com.toedter.calendar.JDateChooser txt_fin;
+    private com.toedter.calendar.JDateChooser txt_inicio;
     // End of variables declaration//GEN-END:variables
 }
