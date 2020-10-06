@@ -5,14 +5,14 @@
  */
 package vista;
 
-import controlador.Conexion;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import controlador.Conexion;  //importando la conexion
+import java.sql.Connection;//importando sql connectin para la conexion a la BD
+import java.sql.PreparedStatement;// importando Ps para la preparacion de sentencia 
+import java.sql.ResultSet; //importando Rs para la ejecucion de la sentencia 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
+import java.util.Date;    //importando la libreria Date
+import javax.swing.JComboBox;   //importando combobox para utilizarlo
+import javax.swing.JOptionPane; //importando JoptionPane para ejecucion de mensajes
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,9 +21,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Asignacion extends javax.swing.JInternalFrame {
 
-    Conexion cn = new Conexion();
-    Connection con;
-    PreparedStatement ps;
+    Conexion cn = new Conexion(); //creando un objeto para la conexio
+    Connection con;   
+    PreparedStatement ps; // aqui se crean las variables que vamos a utilizar
     ResultSet rs;
     DefaultTableModel modelo;
 
@@ -32,7 +32,7 @@ public class Asignacion extends javax.swing.JInternalFrame {
         txt_codigo.setEnabled(false);
         listar();
         combo_lote.removeAllItems();
-        combo_tra.removeAllItems();
+        combo_tra.removeAllItems();                       // aqui se pone todo los componentes que se van a iniciar de primero
         combo_asig.removeAllItems();
         combo_labor.removeAllItems();
         cargar_lotes(combo_lote);
@@ -336,7 +336,7 @@ public class Asignacion extends javax.swing.JInternalFrame {
         String codigo = (String) tabla.getValueAt(fila, 0);
         String costo = (String) tabla.getValueAt(fila, 1);
         String tra_it = (String) tabla.getValueAt(fila, 2);
-        String asig_it = (String) tabla.getValueAt(fila, 3);
+        String asig_it = (String) tabla.getValueAt(fila, 3);                  // se meten los valores seleccionados de la tabla en variables 
         String lote_it = (String) tabla.getValueAt(fila, 4);
         String labor_it = (String) tabla.getValueAt(fila, 5);
         String fec_in = (String) tabla.getValueAt(fila, 6);
@@ -348,7 +348,7 @@ public class Asignacion extends javax.swing.JInternalFrame {
         combo_asig.setSelectedItem(asig_it);
         combo_lote.setSelectedItem(lote_it);
         combo_labor.setSelectedItem(labor_it);
-        txt_inicio.setText(fec_in);
+        txt_inicio.setText(fec_in);                                            // se envian los valores de las varibles a los txts
         txt_fin.setText(fec_fin);
         btn_guardar.setEnabled(false);
         txt_codigo.setEnabled(false);
@@ -357,7 +357,7 @@ public class Asignacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tablaMouseClicked
 
     private void txt_codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyTyped
-        char c = evt.getKeyChar();
+        char c = evt.getKeyChar();  //validando que solamente acepte numeros
         if (c < '0' || c > '9')
             evt.consume();
     }//GEN-LAST:event_txt_codigoKeyTyped
@@ -458,7 +458,7 @@ public class Asignacion extends javax.swing.JInternalFrame {
         try {
             con = cn.conectarse();
             ps = con.prepareStatement("select * from asignacion");
-            rs = ps.executeQuery();
+            rs = ps.executeQuery();            // ejercutamos la consulta
 
             Object[] labor = new Object[8];
             modelo = (DefaultTableModel) tabla.getModel();
@@ -467,7 +467,7 @@ public class Asignacion extends javax.swing.JInternalFrame {
                 labor[1] = rs.getString("costo");
                 labor[2] = rs.getString("trabajador");
                 labor[3] = rs.getString("asignador");
-                labor[4] = rs.getString("lote");
+                labor[4] = rs.getString("lote");                       // agregamos los resultados de la consulta a la tabla.
                 labor[5] = rs.getString("labor");
                 labor[6] = rs.getString("f_inicio");
                 labor[7] = rs.getString("f_fin");
@@ -476,6 +476,8 @@ public class Asignacion extends javax.swing.JInternalFrame {
             }
 
         } catch (Exception e) {
+             // saldra este mensaje si lo anterior falla
+                JOptionPane.showMessageDialog(null, " Error ");
         }
 
     }
@@ -484,23 +486,28 @@ public class Asignacion extends javax.swing.JInternalFrame {
     
         String costo = txt_costo.getText();
         String trabajador = (String) combo_tra.getSelectedItem();
-        String asignador = (String) combo_asig.getSelectedItem();
+        String asignador = (String) combo_asig.getSelectedItem();        // se meten los valores de los txts en variables
         String lote = (String) combo_lote.getSelectedItem();
         String labor = (String) combo_labor.getSelectedItem();
         String inicio = txt_inicio.getText();
         String fin = txt_fin.getText();
         if ( costo.equals("") || trabajador.equals("") || asignador.equals("") || lote.equals("") || labor.equals("") || inicio.equals("") || fin.equals("")) {
             JOptionPane.showMessageDialog(null, " Los campos deben estar todos llenos ");
+        //aqui se valida que ningun campó este vacio
         } else {
             try {
-                con = cn.conectarse();
+                
+                 // si no hay campos vacios se insertan los datos en la tabla de administradores
+                con = cn.conectarse(); 
                 ps = con.prepareStatement("insert into asignacion (costo,trabajador,asignador,lote,labor,f_inicio,f_fin) values('" + costo + "','" + trabajador + "','" + asignador + "','" + lote + "','" + labor + "','" + inicio + "','" + fin + "')");
-                ps.executeUpdate();
-                JOptionPane.showMessageDialog(null, "asignacion agregada correctamente");
+                ps.executeUpdate();   // se ejecuta la consulta
+                JOptionPane.showMessageDialog(null, "asignacion agregada correctamente"); 
                 limpiarTabla();
                 limpiartxt();
                 listar();
             } catch (Exception e) {
+                // saldra este mensaje si lo anterior falla
+                JOptionPane.showMessageDialog(null, " Error ");
             }
         }
     }
@@ -509,74 +516,81 @@ public class Asignacion extends javax.swing.JInternalFrame {
 
         String codigo = txt_codigo.getText();
         String costo = txt_costo.getText();
-        String trabajador = (String) combo_tra.getSelectedItem();
-        String asignador = (String) combo_asig.getSelectedItem();
+        String trabajador = (String) combo_tra.getSelectedItem(); // se meten los valores de los txts en variables
+        String asignador = (String) combo_asig.getSelectedItem(); 
         String lote = (String) combo_lote.getSelectedItem();
         String labor = (String) combo_labor.getSelectedItem();
         String inicio = txt_inicio.getText();
         String fin = txt_fin.getText();
       if (codigo.equals("") || costo.equals("") || trabajador.equals("") || asignador.equals("") || lote.equals("") || labor.equals("") || inicio.equals("") || fin.equals("")) {
             JOptionPane.showMessageDialog(null, " Los campos deben estar todos llenos ");
-        } else {
+            //aqui se valida que ningun campó este vacio
+      
+      } else {
         try {
             con = cn.conectarse();
             ps = con.prepareStatement("update asignacion set  costo='" + costo + "',trabajador='" + trabajador + "',asignador='" + asignador + "',lote='" + lote + "',labor='" + labor + "',f_inicio='" + inicio + "',f_fin='" + fin + "' where id_asig='" + codigo + "'");
-            ps.executeUpdate();
+            ps.executeUpdate(); // ejecuta la consulta
             JOptionPane.showMessageDialog(null, "se actualizo correctamente");
-            limpiarTabla();
-            limpiartxt();
-            listar();
+            limpiarTabla();                      // luego limpia los txts
+            limpiartxt();                    
+            listar();                           // enlista de nuevo para ver los cambios
         } catch (Exception e) {
+        
+              // saldra este mensaje si lo anterior falla
+                JOptionPane.showMessageDialog(null, " Error ");
             JOptionPane.showMessageDialog(null, e);
         }
 
         } 
     }
 
-    public void eliminar() {
+    public void eliminar() {// creacion de metodo eliminar 
         String codigo = txt_codigo.getText();
-         int opc = JOptionPane.showConfirmDialog(null, "¿Realmente quiere eliminar una asignación? ");
-        if (opc == JOptionPane.YES_OPTION) {
+         int opc = JOptionPane.showConfirmDialog(null, "¿Realmente quiere eliminar una asignación? "); // mensaje de opcion 
+        if (opc == JOptionPane.YES_OPTION) { // si la opcion es si el procede a elimar un ADMIN
     
         
         try {
             con = cn.conectarse();
             ps = con.prepareStatement("delete from asignacion where id_asig='" + codigo + "'");
-            ps.executeUpdate();
+            ps.executeUpdate();   // ejecuta la consulta
             JOptionPane.showMessageDialog(null, "Se elimino correctamente");
-            limpiarTabla();
-            limpiartxt();
-            listar();
+            limpiarTabla();    
+            limpiartxt();  //  despues limpiar los txt
+            listar();   // mostrar lo que hemos agregado 
 
             btn_guardar.setEnabled(true);
 
-        } catch (Exception e) {
+        } catch (Exception e) {  // en caso de que haya un error muestra este mensaje
+            JOptionPane.showMessageDialog(null, " Eror ");
+            JOptionPane.showMessageDialog(null, e);
         }
         }
-           if (opc == JOptionPane.NO_OPTION) {
+           if (opc == JOptionPane.NO_OPTION) {  // si la opcino es no, muestra ese mensaje 
             JOptionPane.showMessageDialog(null, " NO se pudo eliminar");
         }
-        if (opc == JOptionPane.CANCEL_OPTION) {
+        if (opc == JOptionPane.CANCEL_OPTION) { // si la opcino es cancelar, muestra ese mensaje 
             JOptionPane.showMessageDialog(null, "Se ha cancelado  ");
         }
     }
 
-    void limpiartxt() {
+    void limpiartxt() {// creacion de metodo de limpiar los txt   
         txt_codigo.setText("");
         txt_costo.setText("");
         combo_tra.setSelectedIndex(0);
-        combo_asig.setSelectedIndex(0);
+        combo_asig.setSelectedIndex(0);         //mostrando txt limpios
         combo_lote.setSelectedIndex(0);
         combo_labor.setSelectedIndex(0);
         txt_inicio.setText("");
-        txt_fin.setText("");
-        btn_guardar.setEnabled(true);
+        txt_fin.setText("");             
+        btn_guardar.setEnabled(true);             // despues de impiar los txt  se habilita el boton guardar
 
     }
 
     private void limpiarTabla() {
 
-        for (int i = 0; i < tabla.getRowCount(); i++) {
+        for (int i = 0; i < tabla.getRowCount(); i++) {      // este for recorre la tabla y va eliminando lo que haya en ella
             modelo.removeRow(i);
             i -= 1;
 

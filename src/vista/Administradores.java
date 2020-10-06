@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel; //importando Default para la utiliza
 
 public class Administradores extends javax.swing.JInternalFrame {
 
-    Conexion conexion = new Conexion();
+    Conexion conexion = new Conexion();    //creando un objeto para la conexion
     Connection con;
     PreparedStatement ps;                  // aqui se crean las variables que vamos a utilizar
     ResultSet rs;
@@ -354,6 +354,7 @@ public class Administradores extends javax.swing.JInternalFrame {
             }
             tabla.setModel(defaul);
         } catch (Exception e) {
+            
         }
 
     }
@@ -385,7 +386,7 @@ public class Administradores extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, " Administrador registrado correctamente ");   
             } catch (Exception e) {
                 // saldra este mensaje si lo anterior falla
-                JOptionPane.showMessageDialog(null, "!UPS¡PARECE QUE TENEMOS UN ERROR");
+                JOptionPane.showMessageDialog(null, " Error ");
             }
         }
     }
@@ -427,13 +428,13 @@ public class Administradores extends javax.swing.JInternalFrame {
         try {
             String cedula = txtcedula.getText();
             ps = con.prepareStatement("DELETE FROM administradores where cedula_admin='" + cedula + "'");
-            ps.executeUpdate();
+            ps.executeUpdate();            // ejecuta la consulta
             JOptionPane.showMessageDialog(null, " Administrador eliminado ");
             limpia(); //  despues limpiar los txt
             lista(); // mostrar lo que hemos agregado 
 
         } catch (Exception e) {  // en caso de que haya un error muestra este mensaje
-            JOptionPane.showMessageDialog(null, "!UPS¡PARECE QUE TENEMOS UN ERROR");
+            JOptionPane.showMessageDialog(null, " Eror ");
             JOptionPane.showMessageDialog(null, e);
         }
         }
