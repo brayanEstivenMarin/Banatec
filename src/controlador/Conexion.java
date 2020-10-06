@@ -13,7 +13,7 @@ public class Conexion {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-             con=DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10360024", "sql10360024", "U976fnU2zE");
+             con=DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10369180", "sql10369180", "2vCUtWv1zT");
             
             
         } catch (Exception e) {
