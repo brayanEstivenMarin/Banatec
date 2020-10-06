@@ -94,13 +94,14 @@ public class Lista_Cintaje extends javax.swing.JInternalFrame {
     
     }//GEN-LAST:event_tablaMouseClicked
 
+   
     void listar() {
         try {
             con = conexion.conectarse();
             ps = con.prepareStatement("SELECT * FROM cintaje");
             rs = ps.executeQuery();
             defaul = (DefaultTableModel) tabla.getModel();
-            Object[] arreglo = new Object[10];
+            Object[] arreglo = new Object[11];
             while (rs.next()) {
                 arreglo[0] = rs.getString("id_encintaje");
                 arreglo[1] = rs.getString("lote");
@@ -112,12 +113,14 @@ public class Lista_Cintaje extends javax.swing.JInternalFrame {
                 arreglo[7] = rs.getString("azul");
                 arreglo[8] = rs.getString("morado");
                 arreglo[9] = rs.getString("cafe");
+                arreglo[10] = rs.getString("total");
                 defaul.addRow(arreglo);
             }
             tabla.setModel(defaul);
         } catch (Exception e) {
         }
     }
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

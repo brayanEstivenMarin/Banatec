@@ -7,17 +7,17 @@ import javax.swing.JOptionPane;
 
 
 public class Conexion {
-    Connection con;
+    Connection con; //creacion de variable para utilizar la conexion sea utilizada con la app.
 
     public Conexion() {
         
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-             con=DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10369180", "sql10369180", "2vCUtWv1zT");
+            Class.forName("com.mysql.jdbc.Driver"); //Utilzando libreria 
+             con=DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10369180", "sql10369180", "2vCUtWv1zT"); //Llamado de BD
             
             
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error al conectarse con la base de datos");
+        } catch (Exception e) { // En caso de que no haya una conexion a la BD muestra ese mensaje.
+            JOptionPane.showMessageDialog(null, "error al conectarse con la base de datos"); 
         }
         
         

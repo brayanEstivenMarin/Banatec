@@ -445,7 +445,13 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lista_cinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lista_cinActionPerformed
-        // TODO add your handling code here:
+         Lista_Cintaje cin=new Lista_Cintaje();
+       fondo.add(cin);
+      cin.show();
+      //no dejar mover jframeinternal y maximixar
+        try {
+        cin.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
     }//GEN-LAST:event_lista_cinActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
