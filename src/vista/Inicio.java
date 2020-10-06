@@ -397,6 +397,8 @@ public class Inicio extends javax.swing.JFrame {
         });
         edad.add(admin);
 
+        costos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        costos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/costo.png"))); // NOI18N
         costos.setText("Costos");
         costos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
