@@ -19,6 +19,7 @@ public class Administradores extends javax.swing.JInternalFrame {
     public Administradores() {
         initComponents();                  // aqui se pone todo los componentes que se van a iniciar de primero
         lista();
+        contra.setEnabled(true);
     }
 
  
@@ -47,7 +48,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         btneliminar = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        contra = new javax.swing.JPasswordField();
+        contra = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
@@ -168,14 +169,6 @@ public class Administradores extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("CONTRASEÑA:");
 
-        contra.setEditable(false);
-        contra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        contra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contraActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -271,7 +264,7 @@ public class Administradores extends javax.swing.JInternalFrame {
                                             .addComponent(contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(txtcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnagregar)
                             .addComponent(btnactua)
@@ -310,7 +303,7 @@ public class Administradores extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 366, Short.MAX_VALUE)
+                .addGap(0, 370, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
@@ -336,6 +329,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         txtdireccion.setText(direccion);
         btnagregar.setEnabled(false);
         txtcedula.setEnabled(false);
+        contra.setEnabled(false);
        
 
     }//GEN-LAST:event_tablaMouseClicked
@@ -370,24 +364,27 @@ public class Administradores extends javax.swing.JInternalFrame {
         String nombre = txtnombre.getText();
         String apellido = txtapellido.getText();
         String correo = txtcorreo.getText();
-        String telefono = txttelefono.getText();
+        String telefono = txttelefono.getText();   // se meten los valores de los txts en variables
         String edad = txtedad.getText();
         String direccion = txtdireccion.getText();
         String contraseña = contra.getText();
         if (cedula.equals("") || nombre.equals("") || apellido.equals("") || correo.equals("") || telefono.equals("") || edad.equals("") || direccion.equals("") || contraseña.equals("")) {
             JOptionPane.showMessageDialog(null, " Los campos deben de estar todos llenos");
+            //aqui se valida que ningun campó este vacio
 
         } else {
 
             try {
+                // si no hay campos vacios se insertan los datos en la tabla de administradores
 
                 ps = con.prepareStatement("INSERT INTO administradores VALUES('" + cedula + "','" + nombre + "','" + apellido + "','" + correo + "','" + telefono + "','" + edad + "','" + direccion + "','" + contraseña + "')");
-                ps.executeUpdate();
-                limpia();
-                lista();
+                ps.executeUpdate();   // se ejecuta la consulta
+                limpia();             // luego limpia los txts
+                lista();             // enlista de nuevo para ver los cambios
 
-                JOptionPane.showMessageDialog(null, " Administrador registrado correctamente ");
+                JOptionPane.showMessageDialog(null, " Administrador registrado correctamente ");   
             } catch (Exception e) {
+                // saldra este mensaje si lo anterior falla
                 JOptionPane.showMessageDialog(null, "!UPS¡PARECE QUE TENEMOS UN ERROR");
             }
         }
@@ -397,23 +394,25 @@ public class Administradores extends javax.swing.JInternalFrame {
 
         String cedula = txtcedula.getText();
         String nombre = txtnombre.getText();
-        String apellido = txtapellido.getText();
-        String correo = txtcorreo.getText();
+        String apellido = txtapellido.getText();         // se meten los valores de los txts en variables
+        String correo = txtcorreo.getText();            
         String telefono = txttelefono.getText();
         String edad = txtedad.getText();
         String direccion = txtdireccion.getText();
         if (cedula.equals("") || nombre.equals("") || apellido.equals("") || correo.equals("") || telefono.equals("") || edad.equals("") || direccion.equals("")) {
-            JOptionPane.showMessageDialog(null, " Los campos deben estar llenos ");
+            JOptionPane.showMessageDialog(null, " Los campos deben estar llenos "); 
+                   //aqui se valida que ningun campó este vacio
 
         } else {
             try {
                 ps = con.prepareStatement("UPDATE administradores SET nombre_a='" + nombre + "',apellido_a='" + apellido + "',correo_a='" + correo + "',telefono_a='" + telefono + "',edad_a='" + edad + "',direccion_a='" + direccion + "' where cedula_admin='" + cedula + "'");
-                ps.executeUpdate();
-                limpia();
-                lista();
-
+                ps.executeUpdate();          // ejecuta la consulta
+                limpia();                  // luego limpia los txts
+                lista();                // enlista de nuevo para ver los cambios
+                contra.setEnabled(true);
                 JOptionPane.showMessageDialog(null, " Administrador actualizado ");
             } catch (Exception e) {
+                // en caso de error
                 JOptionPane.showMessageDialog(null, "!UPS¡PARECE QUE TENEMOS UN ERROR");
             }
         }
@@ -451,7 +450,7 @@ public class Administradores extends javax.swing.JInternalFrame {
         txtnombre.setText("");
         txtapellido.setText("");
         txtcorreo.setText("");
-        txttelefono.setText("");
+        txttelefono.setText("");                       
         txtedad.setText("");
         txtdireccion.setText("");
         contra.setText("");
@@ -462,8 +461,9 @@ public class Administradores extends javax.swing.JInternalFrame {
     }
 
     void limpia() {
-        for (int i = 0; i < tabla.getRowCount(); i++) {
-            defaul.removeRow(i);
+        for (int i = 0; i < tabla.getRowCount(); i++) {    
+            
+            defaul.removeRow(i);                               // este for recorre la tabla y va eliminando lo que haya en ella
             i -= 1;
 
         }
@@ -532,17 +532,13 @@ public class Administradores extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtnombreActionPerformed
 
-    private void contraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contraActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnactua;
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btncancelar;
     private javax.swing.JButton btneliminar;
-    private javax.swing.JPasswordField contra;
+    private javax.swing.JTextField contra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
