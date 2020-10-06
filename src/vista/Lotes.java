@@ -5,23 +5,23 @@
  */
 package vista;
 
-import controlador.Conexion;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import controlador.Conexion;  //importando la conexion
+import java.sql.Connection;  //importando sql connectin para la conexion a la BD
+import java.sql.PreparedStatement;  // importando Ps para la preparacion de sentencia 
+import java.sql.ResultSet;                         //importando Rs para la ejecucion de la sentencia 
+import javax.swing.JOptionPane;                     //importando JoptionPane para ejecucion de mensajes
+import javax.swing.table.DefaultTableModel;       //importando Default para la utilizacion de la tabla
 
 public class Lotes extends javax.swing.JInternalFrame {
 
     Connection con;
     PreparedStatement ps;
-    ResultSet rs;
+    ResultSet rs;                           // creamos las variables que vamos a utilizar
     DefaultTableModel defaul;
     int id;
 
     public Lotes() {
-        initComponents();
+        initComponents();                // componentes que se ejecutan al comienzo del programa
         lista();
     }
 
@@ -188,52 +188,52 @@ public class Lotes extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-        int fila = tabla.getSelectedRow();
+        int fila = tabla.getSelectedRow();             
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Usuario no seleccionado");
+            JOptionPane.showMessageDialog(null, "Usuario no seleccionado"); 
         } else {
             id = Integer.parseInt((String) tabla.getValueAt(fila, 0).toString());
             String des = (String) tabla.getValueAt(fila, 1);
             txtlote.setText("" + id);
-            txtdes.setText(des);
+            txtdes.setText(des);                                      // aqui se selecciona un valor de la tabla y se le asigna a los txts
             txtlote.setEnabled(false);
             btnagregar.setEnabled(false);
         }
     }//GEN-LAST:event_tablaMouseClicked
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
-        agregar();
+        agregar();      // utilizamos el metodo agregar() en el  boton agregar
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btnactuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactuaActionPerformed
-        actualizar();
+        actualizar();    // utilizamos el metodo actualizar() en el  boton actualizar
     }//GEN-LAST:event_btnactuaActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-        eliminar();
+        eliminar();     // utilizamos el metodo eliminar() en el  boton eliminar
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-        nuevo();
+        nuevo();                 // limpiamos todo con el boton cancelar
         JOptionPane.showMessageDialog(null, " Los campos se han limpiado correctamente ");
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void txtloteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtloteKeyTyped
-char c= evt.getKeyChar();
+char c= evt.getKeyChar();                   // solo acepte numeros en el campo de lotes
    if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txtloteKeyTyped
 
     void lista() {
         try {
             Conexion conexion = new Conexion();
-            con = conexion.conectarse();
-            ps = con.prepareStatement("select * from lotes");
-            rs = ps.executeQuery();
+            con = conexion.conectarse();                              // abrimos la conexion
+            ps = con.prepareStatement("select * from lotes");          // preparamos la consulta
+            rs = ps.executeQuery();                                           // ejecutamos la consulta   
             defaul = (DefaultTableModel) tabla.getModel();
-            Object[] arreglo = new Object[2];
+            Object[] arreglo = new Object[2];                              // creamos el arreglo para insertar en la tabla
             while (rs.next()) {
                 arreglo[0] = rs.getInt("id_lote");
-                arreglo[1] = rs.getString("descripcion");
+                arreglo[1] = rs.getString("descripcion");    // aqui se agregan los valores de la consulta en la tabla
                 defaul.addRow(arreglo);
             }
             tabla.setModel(defaul);
@@ -243,20 +243,20 @@ char c= evt.getKeyChar();
     
     void agregar() {
         String id_lote = txtlote.getText();
-        String descripcion = txtdes.getText();
-        if (id_lote.equals("") || descripcion.equals("")) {
+        String descripcion = txtdes.getText();            // se meten los valores de los txts en variables
+        if (id_lote.equals("") || descripcion.equals("")) {       // valida campos vacios
             JOptionPane.showMessageDialog(null, "Ingrese los datos por favor");
             
         } else {
             try {
                 ps = con.prepareStatement("INSERT INTO lotes (id_lote,descripcion)values('" + id_lote + "','" + descripcion + "')");
-                ps.executeUpdate();
+                ps.executeUpdate(); //preparamos y ejecutamos la consulta
                 JOptionPane.showMessageDialog(null, "AGREGADO CORRECTAMENTE");
                 limpiartabla();
-                lista();
+                lista();                //refrescamos la tabla
                 nuevo();
                  txtlote.setEnabled(true);
-            btnagregar.setEnabled(true);
+            btnagregar.setEnabled(true);           // activamos botones y txts
             } catch (Exception e) {
                 
                 JOptionPane.showMessageDialog(null, "ERROR AL AGREGAR");
@@ -266,19 +266,19 @@ char c= evt.getKeyChar();
     }
     
     void actualizar() {
-        String id_lote = txtlote.getText();
+        String id_lote = txtlote.getText();   // se meten los valores de los txts en variables
         String de = txtdes.getText();
-        if (id_lote.equals("") || de.equals("")) {
+        if (id_lote.equals("") || de.equals("")) {   // valida campos vacios
             JOptionPane.showMessageDialog(null, "SELECCIONE El LOTE POR FAVOR.");
             
         } else {
             try {
                 ps = con.prepareStatement("UPDATE lotes SET descripcion='" + de + "' where id_lote='" + id_lote + "'");
-                ps.executeUpdate();
+                ps.executeUpdate();  // preparamos y ejecutamos la consulta   
                 JOptionPane.showMessageDialog(null, "ACTUALIZADO CORRECTAMENTE.");
                 limpiartabla();
-                lista();
-                nuevo();
+                lista(); 
+                nuevo();      //refrescamos la tabla y activamos otones y txts
                 btnagregar.setEnabled(true);
                 txtlote.setEnabled(true);
             } catch (Exception e) {
@@ -289,17 +289,17 @@ char c= evt.getKeyChar();
     }
     
     void eliminar() {
-        String id = txtlote.getText();
-            int opc = JOptionPane.showConfirmDialog(null, " ¿Realmente quieres eliminar una labor? ");
+        String id = txtlote.getText();         // se meten los valores de los txts en variables
+            int opc = JOptionPane.showConfirmDialog(null, " ¿Realmente quieres eliminar una labor? "); // pregunta que si quiere eliminar
         if (opc == JOptionPane.YES_OPTION) {
         try {
             
             ps = con.prepareStatement("delete from lotes where id_lote='" + id + "'");
-            ps.executeUpdate();
+            ps.executeUpdate();                 // preparamos y ejecutamos la consulta
             JOptionPane.showMessageDialog(null, "ELIMINADO CORRECTAMENTE.");
             limpiartabla();
             lista();
-            nuevo();
+            nuevo();          //refrescamos la tabla
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "!UPS¡ ERROR.");
@@ -307,7 +307,7 @@ char c= evt.getKeyChar();
         }
         
          if (opc == JOptionPane.NO_OPTION) {
-            JOptionPane.showMessageDialog(null, " NO se pudo eliminar");
+            JOptionPane.showMessageDialog(null, " NO se pudo eliminar");           
         }
         if (opc == JOptionPane.CANCEL_OPTION) {
             JOptionPane.showMessageDialog(null, "Se ha cancelado la operacion ");
@@ -316,7 +316,7 @@ char c= evt.getKeyChar();
     
     void nuevo() {
         btnagregar.setEnabled(true);
-        txtlote.setEnabled(true);
+        txtlote.setEnabled(true);         //limpiamos los txts y habilitamos los botones y txts
         txtlote.setText("");
         txtdes.setText("");
         
@@ -324,7 +324,7 @@ char c= evt.getKeyChar();
   
     void limpiartabla() {
         for (int i = 0; i < tabla.getRowCount(); i++) {
-            defaul.removeRow(i);
+            defaul.removeRow(i);            // recorre y limpiamos los valores de la tabla
             i -= 1;
             
         }
