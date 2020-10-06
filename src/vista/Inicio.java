@@ -452,6 +452,11 @@ public class Inicio extends javax.swing.JFrame {
       Lista_Trabajadores lt=new Lista_Trabajadores();
       fondo.add(lt);
       lt.show();
+      //no dejar mover jframeinternal y maximixar
+        try {
+        lt.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
+                                     
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edadActionPerformed
@@ -464,18 +469,33 @@ public class Inicio extends javax.swing.JFrame {
       Lista_Cosechas lco=new Lista_Cosechas();
        fondo.add(lco);
       lco.show();
+      //no dejar mover jframeinternal y maximixar
+        try {
+        lco.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
+                                   
     }//GEN-LAST:event_lista_traActionPerformed
 
     private void administadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_administadorActionPerformed
       Administradores admin=new Administradores();
        fondo.add(admin);
       admin.show();
+       //no dejar mover jframeinternal y maximixar
+      try {
+        admin.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
+      
+      
     }//GEN-LAST:event_administadorActionPerformed
 
     private void adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminActionPerformed
     Lista_administradores lad=new Lista_administradores();
      fondo.add(lad);
       lad.show();
+       //no dejar mover jframeinternal y maximixar
+       try {
+        lad.setMaximum(true);
+        } catch(PropertyVetoException e) { e.printStackTrace(); }
     }//GEN-LAST:event_adminActionPerformed
 
     private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
