@@ -12,12 +12,12 @@ public class Administradores extends javax.swing.JInternalFrame {
 
     Conexion conexion = new Conexion();
     Connection con;
-    PreparedStatement ps;
+    PreparedStatement ps;                  // aqui se crean las variables que vamos a utilizar
     ResultSet rs;
     DefaultTableModel defaul;
 
     public Administradores() {
-        initComponents();
+        initComponents();                  // aqui se pone todo los componentes que se van a iniciar de primero
         lista();
     }
 
@@ -258,9 +258,9 @@ public class Administradores extends javax.swing.JInternalFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel7)
-                                            .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtedad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel7))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,17 +322,17 @@ public class Administradores extends javax.swing.JInternalFrame {
         int fila = tabla.getSelectedRow();
         String cedula = (String) tabla.getValueAt(fila, 0);
         String nombre = (String) tabla.getValueAt(fila, 1);
-        String apellido = (String) tabla.getValueAt(fila, 2);
+        String apellido = (String) tabla.getValueAt(fila, 2);            // se meten los valores seleccionados de la tabla en variables 
         String correo = (String) tabla.getValueAt(fila, 3);
         String telefono = (String) tabla.getValueAt(fila, 4);
-        String edad = (String) tabla.getValueAt(fila, 5);
+        String edad = (String) tabla.getValueAt(fila, 5);               
         String direccion = (String) tabla.getValueAt(fila, 6);
         txtcedula.setText(cedula);
         txtnombre.setText(nombre);
         txtapellido.setText(apellido);
         txtcorreo.setText(correo);
         txttelefono.setText(telefono);
-        txtedad.setText(edad);
+        txtedad.setText(edad);                                          // se envian los valores de las varibles a los txts
         txtdireccion.setText(direccion);
         btnagregar.setEnabled(false);
         txtcedula.setEnabled(false);
@@ -340,12 +340,12 @@ public class Administradores extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tablaMouseClicked
 
-    void lista() {
+    void lista() {    
 
         try {
-            con = conexion.conectarse();
+            con = conexion.conectarse();    
             ps = con.prepareStatement("SELECT * FROM administradores ");
-            rs = ps.executeQuery();
+            rs = ps.executeQuery();                                                 // ejercutamos la consulta
             defaul = (DefaultTableModel) tabla.getModel();
             Object[] admin = new Object[7];
             while (rs.next()) {
@@ -353,7 +353,7 @@ public class Administradores extends javax.swing.JInternalFrame {
                 admin[1] = rs.getString("nombre_a");
                 admin[2] = rs.getString("apellido_a");
                 admin[3] = rs.getString("correo_a");
-                admin[4] = rs.getString("telefono_a");
+                admin[4] = rs.getString("telefono_a");                    // agregamos los resultados de la consulta a la tabla.
                 admin[5] = rs.getString("edad_a");
                 admin[6] = rs.getString("direccion_a");
                 defaul.addRow(admin);

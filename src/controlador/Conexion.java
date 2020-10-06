@@ -13,7 +13,7 @@ public class Conexion {
         
         try {
             Class.forName("com.mysql.jdbc.Driver"); //Utilzando libreria 
-             con=DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10369180", "sql10369180", "2vCUtWv1zT"); //Llamado de BD
+             con=DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10369180", "sql10369180", "2vCUtWv1zT"); //utilizamos la libreria y se da la ruta de conexion.
             
             
         } catch (Exception e) { // En caso de que no haya una conexion a la BD muestra ese mensaje.
@@ -26,6 +26,6 @@ public class Conexion {
     }
     public Connection conectarse(){
     
-    return con;
+    return con; // nos retorna la ruta de la conexion
 }
 }
