@@ -1,12 +1,12 @@
 package vista;
 
-import controlador.Conexion;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
+import controlador.Conexion;     //importando la conexion
+import java.sql.Connection;   //importando sql connectin para la conexion a la BD
+import java.sql.PreparedStatement; // importando Ps para la preparacion de sentencia 
+import java.sql.ResultSet;         //importando Rs para la ejecucion de la sentencia 
+import javax.swing.JOptionPane;  //importando JoptionPane para ejecucion de mensajes
+import javax.swing.JTextField; 
+import javax.swing.table.DefaultTableModel; //importando Default para la utilizacion de la tabla
 
 public class Administradores extends javax.swing.JInternalFrame {
 
@@ -419,45 +419,46 @@ public class Administradores extends javax.swing.JInternalFrame {
 
     }
 
-    void eliminar() {
+    void eliminar() { // creacion de metodo eliminar 
         
         
-         int opc = JOptionPane.showConfirmDialog(null, " ¿Realmente quieres eliminar un administrador? ");
-        if (opc == JOptionPane.YES_OPTION) {
+         int opc = JOptionPane.showConfirmDialog(null, " ¿Realmente quieres eliminar un administrador? "); // mensaje de opcion 
+        if (opc == JOptionPane.YES_OPTION) { // si la opcion es si el procede a elimar un ADMIN
         try {
             String cedula = txtcedula.getText();
             ps = con.prepareStatement("DELETE FROM administradores where cedula_admin='" + cedula + "'");
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, " Administrador eliminado ");
-            limpia();
-            lista();
+            limpia(); //  despues limpiar los txt
+            lista(); // mostrar lo que hemos agregado 
 
-        } catch (Exception e) {
+        } catch (Exception e) {  // en caso de que haya un error muestra este mensaje
             JOptionPane.showMessageDialog(null, "!UPS¡PARECE QUE TENEMOS UN ERROR");
+            JOptionPane.showMessageDialog(null, e);
         }
         }
-          if (opc == JOptionPane.NO_OPTION) {
+          if (opc == JOptionPane.NO_OPTION) { // si la opcino es no, muestra ese mensaje 
             JOptionPane.showMessageDialog(null, " NO se pudo eliminar");
         }
-        if (opc == JOptionPane.CANCEL_OPTION) {
+        if (opc == JOptionPane.CANCEL_OPTION) { // si la opcino es cancelar, muestra ese mensaje 
             JOptionPane.showMessageDialog(null, "Se ha cancelado la operacion ");
         }
         
     }
 
-    void cancelar() {
+    void cancelar() { // creacion de metodo de limpiar los txt   
         txtcedula.setText("");
         txtnombre.setText("");
         txtapellido.setText("");
-        txtcorreo.setText("");
+        txtcorreo.setText("");       //mostrando txt limpios
         txttelefono.setText("");                       
         txtedad.setText("");
         txtdireccion.setText("");
         contra.setText("");
-        btnagregar.setEnabled(true);
-        txtcedula.setEnabled(true);
-         contra.setEnabled(true);
-
+        btnagregar.setEnabled(true);     // despues de impiar los txt  se habilita el boton guardar 
+        txtcedula.setEnabled(true);        // despues de impiar los txt  se habilita el txt cedula
+         contra.setEnabled(true);            // despues de impiar los txt  se habilita el txt contraseña
+ 
     }
 
     void limpia() {
@@ -497,7 +498,7 @@ public class Administradores extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jPanel1AncestorAdded
 
     private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyTyped
-        char c = evt.getKeyChar();
+        char c = evt.getKeyChar(); //validando que solamente acepte numeros 
         if (c < '0' || c > '9') {
             evt.consume();
         }
@@ -506,24 +507,24 @@ public class Administradores extends javax.swing.JInternalFrame {
 
     private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
         char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z') //validando que solamente acepte letras
             evt.consume();
     }//GEN-LAST:event_txtnombreKeyTyped
 
     private void txtedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyTyped
-        char c = evt.getKeyChar();
-        if (c < '0' || c > '9')
+        char c = evt.getKeyChar(); //validando que solamente acepte numeros
+        if (c < '0' || c > '9') 
             evt.consume();
     }//GEN-LAST:event_txtedadKeyTyped
 
     private void txtapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidoKeyTyped
-        char c = evt.getKeyChar();
+        char c = evt.getKeyChar(); //validando que solamente acepte letras
         if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
             evt.consume();
     }//GEN-LAST:event_txtapellidoKeyTyped
 
     private void txttelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelefonoKeyTyped
-        char c = evt.getKeyChar();
+        char c = evt.getKeyChar();//validando que solamente acepte numeros
         if (c < '0' || c > '9')
             evt.consume();
     }//GEN-LAST:event_txttelefonoKeyTyped

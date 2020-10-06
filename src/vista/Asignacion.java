@@ -535,9 +535,9 @@ public class Asignacion extends javax.swing.JInternalFrame {
 
     public void eliminar() {
         String codigo = txt_codigo.getText();
-     int opc = JOptionPane.showConfirmDialog(null, "¿Realmente quiere eliminar una asignación? ");
+         int opc = JOptionPane.showConfirmDialog(null, "¿Realmente quiere eliminar una asignación? ");
         if (opc == JOptionPane.YES_OPTION) {
-        
+    
         
         try {
             con = cn.conectarse();
