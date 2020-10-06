@@ -1,4 +1,3 @@
-
 package vista;
 
 import controlador.Conexion;
@@ -9,24 +8,22 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 public class Trabajadores extends javax.swing.JInternalFrame {
-       Conexion cn=new Conexion();
+
+    Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
     DefaultTableModel modelo;
-      Statement stt;
-      int id;
-            
-          
+    Statement stt;
+    int id;
+
     public Trabajadores() {
         initComponents();
-      listar();
-     
+        listar();
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -288,38 +285,35 @@ public class Trabajadores extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-   
-        int fila=tabla.getSelectedRow();
-        if (fila==-1) {
+
+        int fila = tabla.getSelectedRow();
+        if (fila == -1) {
             JOptionPane.showMessageDialog(null, "ninguna fila seleccionada");
-        }
-        
-        else{
+        } else {
             txt_cedula.setEnabled(false);
             btn_guardar.setEnabled(false);
-        id=Integer.parseInt((String)tabla.getValueAt(fila, 0)) ;
-        String cedula=(String)tabla.getValueAt(fila,0);
-        String nombre=(String)tabla.getValueAt(fila,1);
-        String apellido=(String)tabla.getValueAt(fila,2);
-        String telefono=(String)tabla.getValueAt(fila,3);
-        String edad=(String)tabla.getValueAt(fila,4);
-        String direccion=(String)tabla.getValueAt(fila,5);
-        txt_cedula.setText(""+cedula);
-         txt_nombre.setText(nombre);
-         txt_apellido.setText(apellido);
-        txt_edad.setText(edad);
-        txt_telefono.setText(telefono);
-        txt_direccion.setText(direccion);
-        
-        
+            id = Integer.parseInt((String) tabla.getValueAt(fila, 0));
+            String cedula = (String) tabla.getValueAt(fila, 0);
+            String nombre = (String) tabla.getValueAt(fila, 1);
+            String apellido = (String) tabla.getValueAt(fila, 2);
+            String telefono = (String) tabla.getValueAt(fila, 3);
+            String edad = (String) tabla.getValueAt(fila, 4);
+            String direccion = (String) tabla.getValueAt(fila, 5);
+            txt_cedula.setText("" + cedula);
+            txt_nombre.setText(nombre);
+            txt_apellido.setText(apellido);
+            txt_edad.setText(edad);
+            txt_telefono.setText(telefono);
+            txt_direccion.setText(direccion);
+
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_tablaMouseClicked
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         limpiartxt();
+        JOptionPane.showMessageDialog(null, " Los campos se han limpiado correctamente ");
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
@@ -335,28 +329,33 @@ public class Trabajadores extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     private void txt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefonoKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txt_telefonoKeyTyped
 
     private void txt_apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apellidoKeyTyped
-        char c= evt.getKeyChar();
-        if((c<'a' || c>'z' ) && (c<'A')|c>'Z') evt.consume() ;              // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
+            evt.consume();              // TODO add your handling code here:
     }//GEN-LAST:event_txt_apellidoKeyTyped
 
     private void txt_edadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_edadKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txt_edadKeyTyped
 
     private void txt_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyTyped
-        char c= evt.getKeyChar();
-        if((c<'a' || c>'z' ) && (c<'A')|c>'Z') evt.consume() ;              // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
+            evt.consume();              // TODO add your handling code here:
     }//GEN-LAST:event_txt_nombreKeyTyped
 
     private void txt_cedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cedulaKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txt_cedulaKeyTyped
 
     private void txt_cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cedulaActionPerformed
@@ -371,135 +370,138 @@ public class Trabajadores extends javax.swing.JInternalFrame {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-void listar(){
-    try {
-      con=cn.conectarse();
-      ps=con.prepareStatement("select * from trabajadores");
-      rs=ps.executeQuery();
-      Object[]trabajador= new Object[6];
-      modelo=(DefaultTableModel) tabla.getModel();
-      
-      while(rs.next()){
-         trabajador[0]=rs.getString("cedula_tra");
-         trabajador[1]=rs.getString("nombre_t");
-         trabajador[2]=rs.getString("apellido_t");
-         trabajador[3]=rs.getString("telefono_t");
-         trabajador[4]=rs.getString("edad_t");
-         trabajador[5]=rs.getString("direccion_t");
-            modelo.addRow(trabajador);
-  
-      }
-         tabla.setModel(modelo);
-        
-    } catch (Exception e) {
+    void listar() {
+        try {
+            con = cn.conectarse();
+            ps = con.prepareStatement("select * from trabajadores");
+            rs = ps.executeQuery();
+            Object[] trabajador = new Object[6];
+            modelo = (DefaultTableModel) tabla.getModel();
+
+            while (rs.next()) {
+                trabajador[0] = rs.getString("cedula_tra");
+                trabajador[1] = rs.getString("nombre_t");
+                trabajador[2] = rs.getString("apellido_t");
+                trabajador[3] = rs.getString("telefono_t");
+                trabajador[4] = rs.getString("edad_t");
+                trabajador[5] = rs.getString("direccion_t");
+                modelo.addRow(trabajador);
+
+            }
+            tabla.setModel(modelo);
+
+        } catch (Exception e) {
+        }
+
     }
-    
 
+    private void limpiarTabla() {
 
-}
- private void limpiarTabla() {
-     
-for (int i = 0; i < tabla.getRowCount(); i++) {
-modelo.removeRow(i);
-i-=1;
+        for (int i = 0; i < tabla.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i -= 1;
 
-}
-}
- 
- public void guardar(){
+        }
+    }
 
- String cedula = txt_cedula.getText();
-  String nombre = txt_nombre.getText();
-   String apellidos = txt_apellido.getText();
-    String telefono = txt_telefono.getText();
-     String edad = txt_edad.getText();
-      String direccion= txt_direccion.getText();
-      
-       if(cedula.equals("") || nombre.equals("") || apellidos.equals("") || edad.equals("") || telefono.equals("") || direccion.equals("")){
-      JOptionPane.showMessageDialog(null,"Trabajador guardado correctamente");
-       }
-       else{
-      
-      try {
-          con=cn.conectarse();
-          ps=con.prepareStatement("INSERT INTO trabajadores value('"+cedula+"','"+nombre+"','"+apellidos+"','"+telefono+"','"+edad+"','"+direccion+"')");
-          ps.executeUpdate();
-          JOptionPane.showMessageDialog(null, "Trabajador guardado correctamente");
-          
-          limpiartxt();
-          limpiarTabla();
-          listar();
-          
-          
-     } catch (Exception e) {
-              JOptionPane.showMessageDialog(null, "No se pudo crear el trabajador");
-     }
- 
- }
- 
- }
-     void limpiartxt(){
-   txt_cedula.setText("");
-   txt_nombre.setText("");
-   txt_apellido.setText("");
-  txt_direccion.setText("");
-  txt_telefono.setText("");
-   txt_edad.setText("");
-  btn_guardar.setEnabled(true);
-  txt_cedula.setEnabled(true);
+    public void guardar() {
 
-      }
-     
-     
-     
-     void actualizar(){
-         
-          JOptionPane.showMessageDialog(null,"Se debe llenar todos los campos");
         String cedula = txt_cedula.getText();
         String nombre = txt_nombre.getText();
         String apellidos = txt_apellido.getText();
-         String telefono = txt_telefono.getText();
-     String edad = txt_edad.getText();
-      String direccion= txt_direccion.getText();
-      if(nombre.equals("") || apellidos.equals("") || edad.equals("") || telefono.equals("") || direccion.equals("")){
-      JOptionPane.showMessageDialog(null,"se actualizo correctamente");
-       }
-      else{
-      
-          try {
- 
-          con=cn.conectarse();
-          ps=con.prepareStatement("update trabajadores set nombre_t='"+nombre+"',apellido_t='"+apellidos+"',telefono_t='"+telefono+"',edad_t='"+edad+"',direccion_t='"+direccion+"' where cedula_tra='"+cedula+"'");
-          ps.executeUpdate();
-          JOptionPane.showMessageDialog(null, "Actualizado correctamente");
-          limpiartxt();
-          limpiarTabla();
-          listar();
-          
-          btn_guardar.setEnabled(true);
-          txt_cedula.setEnabled(true);
-          } catch (Exception e) {
-               JOptionPane.showMessageDialog(null, "Error al actualizar");
-          }
-      
-      
-      }
-}
- void eliminar(){
-   
-     try {
-          String cedula=txt_cedula.getText();
-         con=cn.conectarse();
-        ps=con.prepareStatement("DELETE FROM trabajadores WHERE cedula_tra='"+cedula+"'");
-        ps.executeUpdate();
-       limpiarTabla();
-       limpiartxt();
-       listar();
-           JOptionPane.showMessageDialog(null, "Se elimino correctamente");
-     } catch (Exception e) {
-     }
+        String telefono = txt_telefono.getText();
+        String edad = txt_edad.getText();
+        String direccion = txt_direccion.getText();
 
- }
+        if (cedula.equals("") || nombre.equals("") || apellidos.equals("") || edad.equals("") || telefono.equals("") || direccion.equals("")) {
+            JOptionPane.showMessageDialog(null, " Los campos deben de estar todos llenos");
+        } else {
+
+            try {
+                con = cn.conectarse();
+                ps = con.prepareStatement("INSERT INTO trabajadores value('" + cedula + "','" + nombre + "','" + apellidos + "','" + telefono + "','" + edad + "','" + direccion + "')");
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Trabajador guardado correctamente");
+
+                limpiartxt();
+                limpiarTabla();
+                listar();
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo crear el trabajador");
+            }
+
+        }
+
+    }
+
+    void limpiartxt() {
+        txt_cedula.setText("");
+        txt_nombre.setText("");
+        txt_apellido.setText("");
+        txt_direccion.setText("");
+        txt_telefono.setText("");
+        txt_edad.setText("");
+        btn_guardar.setEnabled(true);
+        txt_cedula.setEnabled(true);
+
+    }
+
+    void actualizar() {
+
+      
+        String cedula = txt_cedula.getText();
+        String nombre = txt_nombre.getText();
+        String apellidos = txt_apellido.getText();
+        String telefono = txt_telefono.getText();
+        String edad = txt_edad.getText();
+        String direccion = txt_direccion.getText();
+        if (nombre.equals("") || apellidos.equals("") || edad.equals("") || telefono.equals("") || direccion.equals("")) {
+             JOptionPane.showMessageDialog(null, " Los campos deben estar llenos ");
+        } else {
+
+            try {
+
+                con = cn.conectarse();
+                ps = con.prepareStatement("update trabajadores set nombre_t='" + nombre + "',apellido_t='" + apellidos + "',telefono_t='" + telefono + "',edad_t='" + edad + "',direccion_t='" + direccion + "' where cedula_tra='" + cedula + "'");
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Actualizado correctamente");
+                limpiartxt();
+                limpiarTabla();
+                listar();
+
+                btn_guardar.setEnabled(true);
+                txt_cedula.setEnabled(true);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al actualizar");
+            }
+
+        }
+    }
+
+    void eliminar() {
+
+        int opc = JOptionPane.showConfirmDialog(null, " ¿Realmente quieres eliminar un trabajador? ");
+        if (opc == JOptionPane.YES_OPTION) {
+            try {
+                String cedula = txt_cedula.getText();
+                con = cn.conectarse();
+                ps = con.prepareStatement("DELETE FROM trabajadores WHERE cedula_tra='" + cedula + "'");
+                ps.executeUpdate();
+                limpiarTabla();
+                limpiartxt();
+                listar();
+                JOptionPane.showMessageDialog(null, "Se elimino correctamente");
+            } catch (Exception e) {
+            }
+        }
+        if (opc == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(null, " NO se pudo eliminar");
+        }
+        if (opc == JOptionPane.CANCEL_OPTION) {
+            JOptionPane.showMessageDialog(null, "Se ha cancelado la operacion ");
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_eliminar;

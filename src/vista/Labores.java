@@ -1,4 +1,3 @@
-
 package vista;
 
 import controlador.Conexion;
@@ -9,12 +8,13 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Labores extends javax.swing.JInternalFrame {
-    Conexion cn=new Conexion();
+
+    Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
     DefaultTableModel modelo;
-    
+
     public Labores() {
         initComponents();
         listar();
@@ -158,11 +158,11 @@ public class Labores extends javax.swing.JInternalFrame {
                     .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_guardar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_actualizar)
-                    .addComponent(btn_eliminar)
-                    .addComponent(btn_cancelar))
+                    .addComponent(btn_eliminar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_cancelar)
+                    .addComponent(btn_guardar))
                 .addContainerGap())
         );
 
@@ -243,154 +243,153 @@ public class Labores extends javax.swing.JInternalFrame {
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         limpiartxt();
+        JOptionPane.showMessageDialog(null, " Los campos se han limpiado correctamente ");
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-       int fila=tabla.getSelectedRow();
-       String codigo=(String)tabla.getValueAt(fila,0);
-        String nombre=(String)tabla.getValueAt(fila,1);
-        String descripcion=(String)tabla.getValueAt(fila,2);
+        int fila = tabla.getSelectedRow();
+        String codigo = (String) tabla.getValueAt(fila, 0);
+        String nombre = (String) tabla.getValueAt(fila, 1);
+        String descripcion = (String) tabla.getValueAt(fila, 2);
         txt_codigo.setText(codigo);
         txt_nombre.setText(nombre);
         txt_descripcion.setText(descripcion);
         btn_guardar.setEnabled(false);
         txt_codigo.setEnabled(false);
-        
+
     }//GEN-LAST:event_tablaMouseClicked
 
     private void txt_codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyTyped
-char c= evt.getKeyChar();
-   if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txt_codigoKeyTyped
 
     private void txt_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyTyped
-char c= evt.getKeyChar();
-   if((c<'a' || c>'z' ) && (c<'A')|c>'Z') evt.consume() ;              // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
+            evt.consume();              // TODO add your handling code here:
     }//GEN-LAST:event_txt_nombreKeyTyped
 
-    void actualizar(){
-   String codigo=txt_codigo.getText();
-   String nombre=txt_nombre.getText();
-   String descripcion=txt_descripcion.getText();
-    if (codigo.equals("")|| nombre.equals("") || descripcion.equals("")) {
-         JOptionPane.showMessageDialog(null, "todos los campos deben estar llenos");
-     }
-    else{
-   
+    void actualizar() {
+        String codigo = txt_codigo.getText();
+        String nombre = txt_nombre.getText();
+        String descripcion = txt_descripcion.getText();
+        if (codigo.equals("") || nombre.equals("") || descripcion.equals("")) {
+            JOptionPane.showMessageDialog(null, "todos los campos deben estar llenos");
+        } else {
+
+            try {
+                con = cn.conectarse();
+                ps = con.prepareStatement("UPDATE labores SET nombre_l='" + nombre + "',descripcion_l='" + descripcion + "' where id_labor='" + codigo + "'");
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "se actualizo correctamente");
+                limpiarTabla();
+                limpiartxt();
+                listar();
+                btn_guardar.setEnabled(true);
+
+            } catch (Exception e) {
+            }
+
+        }
+    }
+
+    void listar() {
+
         try {
-            con=cn.conectarse();
-            ps=con.prepareStatement("UPDATE labores SET nombre_l='"+nombre+"',descripcion_l='"+descripcion+"' where id_labor='"+codigo+"'");
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "se actualizo correctamente");
-            limpiarTabla();
-            limpiartxt();
-            listar();
-            btn_guardar.setEnabled(true);
-  
-          
-        
+            con = cn.conectarse();
+            ps = con.prepareStatement("select * from labores");
+            rs = ps.executeQuery();
+            Object[] labor = new Object[3];
+            modelo = (DefaultTableModel) tabla.getModel();
+            while (rs.next()) {
+                labor[0] = rs.getString("id_labor");
+                labor[1] = rs.getString("nombre_l");
+                labor[2] = rs.getString("descripcion_l");
+
+                modelo.addRow(labor);
+
+            }
+
         } catch (Exception e) {
         }
-        
+
     }
+
+    void eliminar() {
+        String codigo = txt_codigo.getText();
+
+        int opc = JOptionPane.showConfirmDialog(null, " ¿Realmente quieres eliminar una labor? ");
+        if (opc == JOptionPane.YES_OPTION) {
+            try {
+                con = cn.conectarse();
+                ps = con.prepareStatement("delete from labores where id_labor='" + codigo + "'");
+                ps.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "se elimino  correctamente");
+                limpiarTabla();
+                limpiartxt();
+                listar();
+
+                btn_guardar.setEnabled(true);
+
+            } catch (Exception e) {
+            }
         }
-void listar(){
 
-    try {
-        con=cn.conectarse();
-        ps=con.prepareStatement("select * from labores");
-        rs=ps.executeQuery();
-        Object[] labor =new Object[3];
-        modelo=(DefaultTableModel)tabla.getModel();
-        while(rs.next()){
-        labor[0]=rs.getString("id_labor");
-        labor[1]=rs.getString("nombre_l");
-        labor[2]=rs.getString("descripcion_l");
-        
-        modelo.addRow(labor);
-        
+        if (opc == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(null, " NO se pudo eliminar");
         }
-        
-        
-    } catch (Exception e) {
+        if (opc == JOptionPane.CANCEL_OPTION) {
+            JOptionPane.showMessageDialog(null, "Se ha cancelado la operacion ");
+        }
+    }
+
+    void limpiartxt() {
+        txt_codigo.setText("");
+        txt_nombre.setText("");
+        txt_descripcion.setText("");
+
+        btn_guardar.setEnabled(true);
+
+    }
+
+    private void limpiarTabla() {
+
+        for (int i = 0; i < tabla.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i -= 1;
+
+        }
+    }
+
+    void guardar() {
+
+        String nombre = txt_nombre.getText();
+        String descripcion = txt_descripcion.getText();
+
+        if (nombre.equals("") || descripcion.equals("")) {
+            JOptionPane.showMessageDialog(null, "todos los campos deben estar llenos");
+        } else {
+            try {
+                con = cn.conectarse();
+                ps = con.prepareStatement("INSERT INTO labores (nombre_l,descripcion_l) VALUES('" + nombre + "','" + descripcion + "')");
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "guardado correctamente");
+                limpiarTabla();
+                limpiartxt();
+                listar();
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "no se pudo guardar la labor");
+
+            }
+
+        }
     }
 
 
-
-
-
-
-}
-
-
-void eliminar(){
-String codigo=txt_codigo.getText();
-    try {
-        con=cn.conectarse();
-        ps=con.prepareStatement("delete from labores where id_labor='"+codigo+"'");
-        ps.executeUpdate();
-        
-        JOptionPane.showMessageDialog(null, "se elimino  correctamente");
-        limpiarTabla();
-        limpiartxt();
-        listar();
-        
-         btn_guardar.setEnabled(true);
-          
-          
-    } catch (Exception e) {
-    }
-
-
-
-}
- void limpiartxt(){
-   txt_codigo.setText("");
-   txt_nombre.setText("");
-   txt_descripcion.setText("");
- 
-  btn_guardar.setEnabled(true);
-  
-      }
- private void limpiarTabla() {
-     
-for (int i = 0; i < tabla.getRowCount(); i++) {
-modelo.removeRow(i);
-i-=1;
-
-}
-}
- 
- void guardar(){
- 
-String nombre=txt_nombre.getText();
-String descripcion=txt_descripcion.getText();
-
-
-     if ( nombre.equals("") || descripcion.equals("")) {
-         JOptionPane.showMessageDialog(null, "todos los campos deben estar llenos");
-     }
-     else{
-     try {
-         con=cn.conectarse();     
-         ps=con.prepareStatement("INSERT INTO labores (nombre_l,descripcion_l) VALUES('"+nombre+"','"+descripcion+"')"); 
-         ps.executeUpdate();
-         JOptionPane.showMessageDialog(null, "guardado correctamente");
-         limpiarTabla();
-         limpiartxt();
-         listar();
-         
-     } catch (Exception e) {
-          JOptionPane.showMessageDialog(null, "no se pudo guardar la labor");
-         
-     }
-
-}
- }
- 
- 
-     
- 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_cancelar;

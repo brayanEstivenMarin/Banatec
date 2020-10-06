@@ -140,11 +140,12 @@ public class Lotes extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtdes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnagregar)
-                    .addComponent(btnactua)
-                    .addComponent(btneliminar)
-                    .addComponent(btncancelar))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btncancelar)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnagregar)
+                        .addComponent(btnactua)
+                        .addComponent(btneliminar)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -214,6 +215,7 @@ public class Lotes extends javax.swing.JInternalFrame {
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         nuevo();
+        JOptionPane.showMessageDialog(null, " Los campos se han limpiado correctamente ");
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void txtloteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtloteKeyTyped
@@ -288,6 +290,8 @@ char c= evt.getKeyChar();
     
     void eliminar() {
         String id = txtlote.getText();
+            int opc = JOptionPane.showConfirmDialog(null, " ¿Realmente quieres eliminar una labor? ");
+        if (opc == JOptionPane.YES_OPTION) {
         try {
             
             ps = con.prepareStatement("delete from lotes where id_lote='" + id + "'");
@@ -299,6 +303,14 @@ char c= evt.getKeyChar();
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "!UPS¡ ERROR.");
+        }
+        }
+        
+         if (opc == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(null, " NO se pudo eliminar");
+        }
+        if (opc == JOptionPane.CANCEL_OPTION) {
+            JOptionPane.showMessageDialog(null, "Se ha cancelado la operacion ");
         }
     }
     

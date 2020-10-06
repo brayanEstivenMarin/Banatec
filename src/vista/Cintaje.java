@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package vista;
+
 import controlador.Conexion;
 import java.beans.PropertyVetoException;
 import java.sql.Connection;
@@ -21,23 +22,19 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 public class Cintaje extends javax.swing.JInternalFrame {
 
-
-   Connection con;
+    Connection con;
     PreparedStatement ps;
     ResultSet rs;
     Conexion conexion = new Conexion();
 
     DefaultTableModel defaul;
-    
-    
+
     public Cintaje() {
         initComponents();
         lista();
         cargar_lotes(combolotes);
-              txtid.setEnabled(false );
+        txtid.setEnabled(false);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -376,23 +373,23 @@ public class Cintaje extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-       txtid.setEnabled(false);
-            btn_guardar.setEnabled(false);
-         int fila=tabla.getSelectedRow();
-        String id=(String)tabla.getValueAt(fila,0);
-        String lote=(String)tabla.getValueAt(fila,1);
-        String co1=(String)tabla.getValueAt(fila,2);
-        String co2=(String)tabla.getValueAt(fila,3);
-        String co3=(String)tabla.getValueAt(fila,4);
-        String co4=(String)tabla.getValueAt(fila,5);
-        String co5=(String)tabla.getValueAt(fila,6);
-        String co6=(String)tabla.getValueAt(fila,7);
-        String co7=(String)tabla.getValueAt(fila,8);
-        String co8=(String)tabla.getValueAt(fila,9);
-        String total=(String)tabla.getValueAt(fila,10);
-        txtid.setText(""+id);
-         combolotes.setSelectedIndex(0);
-       txtamarillo.setText(co1);
+        txtid.setEnabled(false);
+        btn_guardar.setEnabled(false);
+        int fila = tabla.getSelectedRow();
+        String id = (String) tabla.getValueAt(fila, 0);
+        String lote = (String) tabla.getValueAt(fila, 1);
+        String co1 = (String) tabla.getValueAt(fila, 2);
+        String co2 = (String) tabla.getValueAt(fila, 3);
+        String co3 = (String) tabla.getValueAt(fila, 4);
+        String co4 = (String) tabla.getValueAt(fila, 5);
+        String co5 = (String) tabla.getValueAt(fila, 6);
+        String co6 = (String) tabla.getValueAt(fila, 7);
+        String co7 = (String) tabla.getValueAt(fila, 8);
+        String co8 = (String) tabla.getValueAt(fila, 9);
+        String total = (String) tabla.getValueAt(fila, 10);
+        txtid.setText("" + id);
+        combolotes.setSelectedItem(lote);
+        txtamarillo.setText(co1);
         txtnaranja.setText(co2);
         txtazul.setText(co3);
         txtmorado.setText(co4);
@@ -400,13 +397,13 @@ public class Cintaje extends javax.swing.JInternalFrame {
         txtrojo.setText(co6);
         txtblanco.setText(co7);
         txtnegro.setText(co8);
-        
-        
-        
+
+
     }//GEN-LAST:event_tablaMouseClicked
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
         cancelar();
+        JOptionPane.showMessageDialog(null, " Los campos se han limpiado correctamente ");
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -422,43 +419,51 @@ public class Cintaje extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     private void txtazulKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtazulKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txtazulKeyTyped
 
     private void txtmoradoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmoradoKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txtmoradoKeyTyped
 
     private void txtcafeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcafeKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txtcafeKeyTyped
 
     private void txtnegroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnegroKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txtnegroKeyTyped
 
     private void txtblancoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtblancoKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txtblancoKeyTyped
 
     private void txtrojoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtrojoKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txtrojoKeyTyped
 
     private void txtnaranjaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnaranjaKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();        // TODO add your handling code here:
     }//GEN-LAST:event_txtnaranjaKeyTyped
 
     private void txtamarilloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtamarilloKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();
     }//GEN-LAST:event_txtamarilloKeyTyped
 
     private void txtamarilloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtamarilloActionPerformed
@@ -470,8 +475,9 @@ public class Cintaje extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_combolotesActionPerformed
 
     private void txtidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidKeyTyped
-        char c= evt.getKeyChar();
-        if(c<'0' || c>'9' ) evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();
     }//GEN-LAST:event_txtidKeyTyped
 
     private void graficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficaActionPerformed
@@ -486,14 +492,14 @@ public class Cintaje extends javax.swing.JInternalFrame {
         int dato5 = Integer.parseInt(txtcafe.getText());
         int dato6 = Integer.parseInt(txtblanco.getText());
         int dato7 = Integer.parseInt(txtnegro.getText());
-        datos.addValue(dato1,"Grafica 1","Amarillo");
-        datos.addValue(dato2,"Grafica 1","Naranja");
-        datos.addValue(dato3,"Grafica 1","Azul");
-        datos.addValue(dato4,"Grafica 1","Morado");
-        datos.addValue(dato5,"Grafica 1","Cafe");
-        datos.addValue(dato6,"Grafica 1","Blanco");
-        datos.addValue(dato7,"Grafica 1","CNegro");
-        grafico = ChartFactory.createBarChart("Banatec", "Eje X", "Eje Y",datos ,PlotOrientation.VERTICAL, true, true, false);
+        datos.addValue(dato1, "Grafica 1", "Amarillo");
+        datos.addValue(dato2, "Grafica 1", "Naranja");
+        datos.addValue(dato3, "Grafica 1", "Azul");
+        datos.addValue(dato4, "Grafica 1", "Morado");
+        datos.addValue(dato5, "Grafica 1", "Cafe");
+        datos.addValue(dato6, "Grafica 1", "Blanco");
+        datos.addValue(dato7, "Grafica 1", "CNegro");
+        grafico = ChartFactory.createBarChart("Banatec", "Eje X", "Eje Y", datos, PlotOrientation.VERTICAL, true, true, false);
         ChartPanel cPanel = new ChartPanel(grafico);
         JFrame informacion = new JFrame("Grafica");
         informacion.getContentPane().add(cPanel);
@@ -502,7 +508,6 @@ public class Cintaje extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_graficaActionPerformed
 
-    
     void lista() {
         try {
             con = conexion.conectarse();
@@ -521,7 +526,7 @@ public class Cintaje extends javax.swing.JInternalFrame {
                 arreglo[7] = rs.getString("azul");
                 arreglo[8] = rs.getString("morado");
                 arreglo[9] = rs.getString("cafe");
-                arreglo[10]=rs.getString("total");
+                arreglo[10] = rs.getString("total");
                 defaul.addRow(arreglo);
             }
             tabla.setModel(defaul);
@@ -530,40 +535,40 @@ public class Cintaje extends javax.swing.JInternalFrame {
     }
 
     void agregar() {
-     
+
         String lote = (String) combolotes.getSelectedItem();
-        int amarillo=Integer.parseInt(txtamarillo.getText());  
-        int  naranja = Integer.parseInt(txtnaranja.getText());
+        int amarillo = Integer.parseInt(txtamarillo.getText());
+        int naranja = Integer.parseInt(txtnaranja.getText());
         int rojo = Integer.parseInt(txtrojo.getText());
         int blanco = Integer.parseInt(txtblanco.getText());
-       int negro =Integer.parseInt(txtnegro.getText()) ;
+        int negro = Integer.parseInt(txtnegro.getText());
         int azul = Integer.parseInt(txtazul.getText());
-        int morado =Integer.parseInt(txtmorado.getText());
+        int morado = Integer.parseInt(txtmorado.getText());
         int cafe = Integer.parseInt(txtcafe.getText());
-        int total=amarillo+naranja+rojo+blanco+negro+azul+morado+cafe;
-        
-       
-        
-            try {
-                ps = con.prepareStatement("INSERT INTO cintaje (lote,amarillo,naranja,rojo,blanco,negro,azul,morado,cafe,total) VALUES('" + lote + "','" + amarillo + "','" + naranja + "','" + rojo + "','" + blanco + "','" + negro + "','" + azul + "','" + morado + "','" + cafe + "','"+ total +"')");
-                ps.executeUpdate();
-                limpiar();
-                lista();
-                cancelar();
-                JOptionPane.showMessageDialog(null, "SE HA AGREGADO CORRECTAMENTE");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "ERROR");
-            
+        int total = amarillo + naranja + rojo + blanco + negro + azul + morado + cafe;
+
+        try {
+            ps = con.prepareStatement("INSERT INTO cintaje (lote,amarillo,naranja,rojo,blanco,negro,azul,morado,cafe,total) VALUES('" + lote + "','" + amarillo + "','" + naranja + "','" + rojo + "','" + blanco + "','" + negro + "','" + azul + "','" + morado + "','" + cafe + "','" + total + "')");
+            ps.executeUpdate();
+            limpiar();
+            lista();
+            cancelar();
+            JOptionPane.showMessageDialog(null, "SE HA AGREGADO CORRECTAMENTE");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR");
+
         }
 
     }
-void sumar(){
-    
-}
+
+    void sumar() {
+
+    }
+
     void actualizar() {
 
         String id = txtid.getText();
-       
+
         String amarillo = txtamarillo.getText();
         String naranja = txtnaranja.getText();
         String rojo = txtrojo.getText();
@@ -581,7 +586,7 @@ void sumar(){
                 limpiar();
                 lista();
                 cancelar();
-                JOptionPane.showMessageDialog(null, "ACTUALIZADO CORRECTAMENTE");
+                JOptionPane.showMessageDialog(null, "Actualizado correctamente");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "ERROR");
             }
@@ -591,17 +596,27 @@ void sumar(){
 
     void eliminar() {
         String id = txtid.getText();
-        try {
-            ps = con.prepareStatement("DELETE FROM cintaje where id_encintaje='" + id + "'");
-            ps.executeUpdate();
-            limpiar();
-            lista();
-            cancelar();
-            JOptionPane.showMessageDialog(null, "ELIMINAR CORRECTAMENTE");
-           
-            btn_guardar.setEnabled(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERROR");
+
+        int opc = JOptionPane.showConfirmDialog(null, " ¿Realmente quieres eliminar? ");
+        if (opc == JOptionPane.YES_OPTION) {
+            try {
+                ps = con.prepareStatement("DELETE FROM cintaje where id_encintaje='" + id + "'");
+                ps.executeUpdate();
+                limpiar();
+                lista();
+                cancelar();
+                JOptionPane.showMessageDialog(null, "Eliminado correctamente");
+
+                btn_guardar.setEnabled(true);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "ERROR");
+            }
+        }
+        if (opc == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(null, " NO se pudo eliminar");
+        }
+        if (opc == JOptionPane.CANCEL_OPTION) {
+            JOptionPane.showMessageDialog(null, "Se ha cancelado la operacion ");
         }
     }
 
@@ -623,10 +638,12 @@ void sumar(){
         txtazul.setText("");
         txtmorado.setText("");
         txtcafe.setText("");
-        combolotes.setEnabled(true);
-  
+        btn_guardar.setEnabled(true);
+        combolotes.setSelectedIndex(0);
+
     }
- public void cargar_lotes(JComboBox cbox_lotes) {
+
+    public void cargar_lotes(JComboBox cbox_lotes) {
 
         try {
             con = conexion.conectarse();

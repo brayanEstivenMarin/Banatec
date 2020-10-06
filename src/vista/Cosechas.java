@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Cosechas extends javax.swing.JInternalFrame {
 //ffffff
+
     Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
@@ -242,6 +243,7 @@ public class Cosechas extends javax.swing.JInternalFrame {
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         limpiartxt();
+        JOptionPane.showMessageDialog(null, " Los campos se han limpiado correctamente ");
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void txt_fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fechaActionPerformed
@@ -255,8 +257,9 @@ public class Cosechas extends javax.swing.JInternalFrame {
         String cantidad = (String) tabla.getValueAt(fila, 2);
         String fecha = (String) tabla.getValueAt(fila, 3);
         txt_codigo.setText(codigo);
-        txt_fecha.setText(fecha);
+        combolotes.setSelectedItem(lote);
         txt_cantidad.setText(cantidad);
+        txt_fecha.setText(fecha);
         btn_guardar.setEnabled(false);
         txt_codigo.setEnabled(false);
     }//GEN-LAST:event_tablaMouseClicked
@@ -384,7 +387,7 @@ public class Cosechas extends javax.swing.JInternalFrame {
     void eliminar() {
 
         String codigo = txt_codigo.getText();
-        int opc = JOptionPane.showConfirmDialog(null, " Hola ¿Realmente quieres elimiar una cosecha? ");
+        int opc = JOptionPane.showConfirmDialog(null, "  ¿Realmente quieres elimiar una cosecha? ");
         if (opc == JOptionPane.YES_OPTION) {
             try {
                 con = cn.conectarse();
